@@ -1,0 +1,9 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    { "source": "/api/naruto/:path*", "destination": "https://dattebayo-api.onrender.com/:path*" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
+}

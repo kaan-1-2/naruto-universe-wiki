@@ -1,0 +1,1193 @@
+{
+  "1": {
+    "portrait": "/assets/characters/1-portrait.webp",
+    "gallery": [
+      "/assets/characters/1-portrait.webp"
+    ]
+  },
+  "5": {
+    "portrait": "/assets/characters/5-portrait.webp",
+    "gallery": [
+      "/assets/characters/5-portrait.webp"
+    ]
+  },
+  "6": {
+    "portrait": "/assets/characters/6-portrait.webp",
+    "gallery": [
+      "/assets/characters/6-portrait.webp"
+    ]
+  },
+  "11": {
+    "portrait": "/assets/characters/11-portrait.webp",
+    "gallery": [
+      "/assets/characters/11-portrait.webp"
+    ]
+  },
+  "13": {
+    "portrait": "/assets/characters/13-portrait.webp",
+    "gallery": [
+      "/assets/characters/13-portrait.webp"
+    ]
+  },
+  "15": {
+    "portrait": "/assets/characters/15-portrait.webp",
+    "gallery": [
+      "/assets/characters/15-portrait.webp"
+    ]
+  },
+  "25": {
+    "portrait": "/assets/characters/25-portrait.jpg",
+    "gallery": [
+      "/assets/characters/25-portrait.jpg"
+    ]
+  },
+  "29": {
+    "portrait": "/assets/characters/29-portrait.webp",
+    "gallery": [
+      "/assets/characters/29-portrait.webp"
+    ]
+  },
+  "38": {
+    "portrait": "/assets/characters/38-portrait.webp",
+    "gallery": [
+      "/assets/characters/38-portrait.webp"
+    ]
+  },
+  "39": {
+    "portrait": "/assets/characters/39-portrait.webp",
+    "gallery": [
+      "/assets/characters/39-portrait.webp"
+    ]
+  },
+  "40": {
+    "portrait": "/assets/characters/40-portrait.webp",
+    "gallery": [
+      "/assets/characters/40-portrait.webp"
+    ]
+  },
+  "41": {
+    "portrait": "/assets/characters/41-portrait.webp",
+    "gallery": [
+      "/assets/characters/41-portrait.webp"
+    ]
+  },
+  "42": {
+    "portrait": "/assets/characters/42-portrait.webp",
+    "gallery": [
+      "/assets/characters/42-portrait.webp"
+    ]
+  },
+  "51": {
+    "portrait": "/assets/characters/51-portrait.webp",
+    "gallery": [
+      "/assets/characters/51-portrait.webp"
+    ]
+  },
+  "104": {
+    "portrait": "/assets/characters/104-portrait.webp",
+    "gallery": [
+      "/assets/characters/104-portrait.webp"
+    ]
+  },
+  "120": {
+    "portrait": "/assets/characters/120-portrait.jpg",
+    "gallery": [
+      "/assets/characters/120-portrait.jpg"
+    ]
+  },
+  "124": {
+    "portrait": "/assets/characters/124-portrait.webp",
+    "gallery": [
+      "/assets/characters/124-portrait.webp"
+    ]
+  },
+  "127": {
+    "portrait": "/assets/characters/127-portrait.webp",
+    "gallery": [
+      "/assets/characters/127-portrait.webp"
+    ]
+  },
+  "148": {
+    "portrait": "/assets/characters/148-portrait.png",
+    "gallery": [
+      "/assets/characters/148-portrait.png"
+    ]
+  },
+  "152": {
+    "portrait": "/assets/characters/152-portrait.webp",
+    "gallery": [
+      "/assets/characters/152-portrait.webp"
+    ]
+  },
+  "153": {
+    "portrait": "/assets/characters/153-portrait.webp",
+    "gallery": [
+      "/assets/characters/153-portrait.webp"
+    ]
+  },
+  "158": {
+    "portrait": "/assets/characters/158-portrait.png",
+    "gallery": [
+      "/assets/characters/158-portrait.png"
+    ]
+  },
+  "162": {
+    "portrait": "/assets/characters/162-portrait.jpg",
+    "gallery": [
+      "/assets/characters/162-portrait.jpg"
+    ]
+  },
+  "190": {
+    "portrait": "/assets/characters/190-portrait.webp",
+    "gallery": [
+      "/assets/characters/190-portrait.webp"
+    ]
+  },
+  "193": {
+    "portrait": "/assets/characters/193-portrait.webp",
+    "gallery": [
+      "/assets/characters/193-portrait.webp"
+    ]
+  },
+  "195": {
+    "portrait": "/assets/characters/195-portrait.webp",
+    "gallery": [
+      "/assets/characters/195-portrait.webp"
+    ]
+  },
+  "210": {
+    "portrait": "/assets/characters/210-portrait.webp",
+    "gallery": [
+      "/assets/characters/210-portrait.webp"
+    ]
+  },
+  "213": {
+    "portrait": "/assets/characters/213-portrait.webp",
+    "gallery": [
+      "/assets/characters/213-portrait.webp"
+    ]
+  },
+  "222": {
+    "portrait": "/assets/characters/222-portrait.jpg",
+    "gallery": [
+      "/assets/characters/222-portrait.jpg"
+    ]
+  },
+  "230": {
+    "portrait": "/assets/characters/230-portrait.webp",
+    "gallery": [
+      "/assets/characters/230-portrait.webp"
+    ]
+  },
+  "240": {
+    "portrait": "/assets/characters/240-portrait.webp",
+    "gallery": [
+      "/assets/characters/240-portrait.webp"
+    ]
+  },
+  "259": {
+    "portrait": "/assets/portraits/gaara.png",
+    "gallery": [
+      "/assets/characters/259-gallery-0.webp",
+      "/assets/characters/259-gallery-1.webp",
+      "/assets/characters/259-scene-0.jpg",
+      "/assets/characters/259-scene-1.webp"
+    ]
+  },
+  "261": {
+    "portrait": "/assets/characters/261-portrait.webp",
+    "gallery": [
+      "/assets/characters/261-portrait.webp"
+    ]
+  },
+  "266": {
+    "portrait": "/assets/characters/266-portrait.webp",
+    "gallery": [
+      "/assets/characters/266-portrait.webp"
+    ]
+  },
+  "271": {
+    "portrait": "/assets/characters/271-portrait.webp",
+    "gallery": [
+      "/assets/characters/271-portrait.webp"
+    ]
+  },
+  "274": {
+    "portrait": "/assets/characters/274-portrait.webp",
+    "gallery": [
+      "/assets/characters/274-portrait.webp"
+    ]
+  },
+  "344": {
+    "portrait": "/assets/characters/344-portrait.webp",
+    "gallery": [
+      "/assets/characters/344-gallery-0.webp",
+      "/assets/characters/344-gallery-1.webp",
+      "/assets/characters/344-scene-0.jpg",
+      "/assets/characters/344-scene-1.jpg"
+    ]
+  },
+  "372": {
+    "portrait": "/assets/characters/372-portrait.webp",
+    "gallery": [
+      "/assets/characters/372-portrait.webp"
+    ]
+  },
+  "373": {
+    "portrait": "/assets/characters/373-portrait.webp",
+    "gallery": [
+      "/assets/characters/373-portrait.webp"
+    ]
+  },
+  "374": {
+    "portrait": "/assets/portraits/sakura-haruno.png",
+    "gallery": [
+      "/assets/portraits/sakura-haruno.png"
+    ]
+  },
+  "376": {
+    "portrait": "/assets/portraits/kakashi-hatake.png",
+    "gallery": [
+      "/assets/characters/376-gallery-0.webp",
+      "/assets/characters/376-gallery-1.webp",
+      "/assets/characters/376-scene-0.jpg",
+      "/assets/characters/376-scene-1.jpg"
+    ]
+  },
+  "377": {
+    "portrait": "/assets/characters/377-portrait.webp",
+    "gallery": [
+      "/assets/characters/377-portrait.webp"
+    ]
+  },
+  "378": {
+    "portrait": "/assets/characters/378-portrait.webp",
+    "gallery": [
+      "/assets/characters/378-portrait.webp"
+    ]
+  },
+  "414": {
+    "portrait": "/assets/characters/414-portrait.webp",
+    "gallery": [
+      "/assets/characters/414-portrait.webp"
+    ]
+  },
+  "421": {
+    "portrait": "/assets/characters/421-portrait.webp",
+    "gallery": [
+      "/assets/characters/421-portrait.webp"
+    ]
+  },
+  "422": {
+    "portrait": "/assets/characters/422-portrait.webp",
+    "gallery": [
+      "/assets/characters/422-portrait.webp"
+    ]
+  },
+  "429": {
+    "portrait": "/assets/characters/429-portrait.webp",
+    "gallery": [
+      "/assets/characters/429-portrait.webp"
+    ]
+  },
+  "430": {
+    "portrait": "/assets/characters/430-portrait.webp",
+    "gallery": [
+      "/assets/characters/430-portrait.webp"
+    ]
+  },
+  "434": {
+    "portrait": "/assets/characters/434-portrait.webp",
+    "gallery": [
+      "/assets/characters/434-portrait.webp"
+    ]
+  },
+  "435": {
+    "portrait": "/assets/characters/435-portrait.webp",
+    "gallery": [
+      "/assets/characters/435-portrait.webp"
+    ]
+  },
+  "436": {
+    "portrait": "/assets/characters/436-portrait.webp",
+    "gallery": [
+      "/assets/characters/436-portrait.webp"
+    ]
+  },
+  "437": {
+    "portrait": "/assets/characters/437-portrait.webp",
+    "gallery": [
+      "/assets/characters/437-portrait.webp"
+    ]
+  },
+  "438": {
+    "portrait": "/assets/characters/438-portrait.webp",
+    "gallery": [
+      "/assets/characters/438-portrait.webp"
+    ]
+  },
+  "439": {
+    "portrait": "/assets/characters/439-portrait.webp",
+    "gallery": [
+      "/assets/characters/439-portrait.webp"
+    ]
+  },
+  "444": {
+    "portrait": "/assets/characters/444-portrait.webp",
+    "gallery": [
+      "/assets/characters/444-portrait.webp"
+    ]
+  },
+  "465": {
+    "portrait": "/assets/characters/465-portrait.webp",
+    "gallery": [
+      "/assets/characters/465-portrait.webp"
+    ]
+  },
+  "466": {
+    "portrait": "/assets/characters/466-portrait.webp",
+    "gallery": [
+      "/assets/characters/466-portrait.webp"
+    ]
+  },
+  "468": {
+    "portrait": "/assets/characters/468-portrait.webp",
+    "gallery": [
+      "/assets/characters/468-portrait.webp"
+    ]
+  },
+  "479": {
+    "portrait": "/assets/characters/479-portrait.webp",
+    "gallery": [
+      "/assets/characters/479-portrait.webp"
+    ]
+  },
+  "480": {
+    "portrait": "/assets/characters/480-portrait.webp",
+    "gallery": [
+      "/assets/characters/480-portrait.webp"
+    ]
+  },
+  "487": {
+    "portrait": "/assets/characters/487-portrait.webp",
+    "gallery": [
+      "/assets/characters/487-portrait.webp"
+    ]
+  },
+  "507": {
+    "portrait": "/assets/characters/507-portrait.webp",
+    "gallery": [
+      "/assets/characters/507-portrait.webp"
+    ]
+  },
+  "515": {
+    "portrait": "/assets/portraits/jiraiya.jpg",
+    "gallery": [
+      "/assets/portraits/jiraiya.jpg",
+      "/assets/characters/515-scene-0.png",
+      "/assets/characters/515-scene-1.png"
+    ]
+  },
+  "521": {
+    "portrait": "/assets/characters/521-portrait.webp",
+    "gallery": [
+      "/assets/characters/521-portrait.webp"
+    ]
+  },
+  "531": {
+    "portrait": "/assets/characters/531-portrait.png",
+    "gallery": [
+      "/assets/characters/531-portrait.png"
+    ]
+  },
+  "546": {
+    "portrait": "/assets/characters/546-portrait.png",
+    "gallery": [
+      "/assets/characters/546-portrait.png"
+    ]
+  },
+  "549": {
+    "portrait": "/assets/characters/549-portrait.webp",
+    "gallery": [
+      "/assets/characters/549-portrait.webp"
+    ]
+  },
+  "577": {
+    "portrait": "/assets/characters/577-portrait.webp",
+    "gallery": [
+      "/assets/characters/577-portrait.webp"
+    ]
+  },
+  "578": {
+    "portrait": "/assets/characters/578-portrait.webp",
+    "gallery": [
+      "/assets/characters/578-portrait.webp"
+    ]
+  },
+  "590": {
+    "portrait": "/assets/characters/590-portrait.webp",
+    "gallery": [
+      "/assets/characters/590-portrait.webp"
+    ]
+  },
+  "591": {
+    "portrait": "/assets/characters/591-portrait.webp",
+    "gallery": [
+      "/assets/characters/591-portrait.webp"
+    ]
+  },
+  "593": {
+    "portrait": "/assets/characters/593-portrait.webp",
+    "gallery": [
+      "/assets/characters/593-portrait.webp"
+    ]
+  },
+  "595": {
+    "portrait": "/assets/characters/595-portrait.webp",
+    "gallery": [
+      "/assets/characters/595-portrait.webp"
+    ]
+  },
+  "597": {
+    "portrait": "/assets/characters/597-portrait.webp",
+    "gallery": [
+      "/assets/characters/597-portrait.webp"
+    ]
+  },
+  "600": {
+    "portrait": "/assets/characters/600-portrait.webp",
+    "gallery": [
+      "/assets/characters/600-portrait.webp"
+    ]
+  },
+  "605": {
+    "portrait": "/assets/characters/605-portrait.webp",
+    "gallery": [
+      "/assets/characters/605-portrait.webp"
+    ]
+  },
+  "609": {
+    "portrait": "/assets/characters/609-portrait.webp",
+    "gallery": [
+      "/assets/characters/609-portrait.webp"
+    ]
+  },
+  "622": {
+    "portrait": "/assets/characters/622-portrait.webp",
+    "gallery": [
+      "/assets/characters/622-portrait.webp"
+    ]
+  },
+  "636": {
+    "portrait": "/assets/characters/636-portrait.webp",
+    "gallery": [
+      "/assets/characters/636-portrait.webp"
+    ]
+  },
+  "653": {
+    "portrait": "/assets/characters/653-portrait.webp",
+    "gallery": [
+      "/assets/characters/653-portrait.webp"
+    ]
+  },
+  "656": {
+    "portrait": "/assets/characters/656-portrait.webp",
+    "gallery": [
+      "/assets/characters/656-portrait.webp"
+    ]
+  },
+  "667": {
+    "portrait": "/assets/characters/667-portrait.webp",
+    "gallery": [
+      "/assets/characters/667-portrait.webp"
+    ]
+  },
+  "669": {
+    "portrait": "/assets/characters/669-portrait.webp",
+    "gallery": [
+      "/assets/characters/669-portrait.webp"
+    ]
+  },
+  "684": {
+    "portrait": "/assets/characters/684-portrait.webp",
+    "gallery": [
+      "/assets/characters/684-portrait.webp"
+    ]
+  },
+  "701": {
+    "portrait": "/assets/characters/701-portrait.webp",
+    "gallery": [
+      "/assets/characters/701-portrait.webp"
+    ]
+  },
+  "711": {
+    "portrait": "/assets/characters/711-portrait.png",
+    "gallery": [
+      "/assets/characters/711-portrait.png"
+    ]
+  },
+  "717": {
+    "portrait": "/assets/characters/717-portrait.webp",
+    "gallery": [
+      "/assets/characters/717-portrait.webp"
+    ]
+  },
+  "720": {
+    "portrait": "/assets/characters/720-portrait.webp",
+    "gallery": [
+      "/assets/characters/720-portrait.webp"
+    ]
+  },
+  "723": {
+    "portrait": "/assets/characters/723-portrait.webp",
+    "gallery": [
+      "/assets/characters/723-portrait.webp"
+    ]
+  },
+  "724": {
+    "portrait": "/assets/characters/724-portrait.webp",
+    "gallery": [
+      "/assets/characters/724-portrait.webp"
+    ]
+  },
+  "725": {
+    "portrait": "/assets/characters/725-portrait.webp",
+    "gallery": [
+      "/assets/characters/725-portrait.webp"
+    ]
+  },
+  "738": {
+    "portrait": "/assets/characters/738-portrait.webp",
+    "gallery": [
+      "/assets/characters/738-portrait.webp"
+    ]
+  },
+  "739": {
+    "portrait": "/assets/characters/739-portrait.webp",
+    "gallery": [
+      "/assets/characters/739-portrait.webp"
+    ]
+  },
+  "744": {
+    "portrait": "/assets/characters/744-portrait.webp",
+    "gallery": [
+      "/assets/characters/744-portrait.webp"
+    ]
+  },
+  "765": {
+    "portrait": "/assets/characters/765-portrait.webp",
+    "gallery": [
+      "/assets/characters/765-portrait.webp"
+    ]
+  },
+  "791": {
+    "portrait": "/assets/characters/791-portrait.webp",
+    "gallery": [
+      "/assets/characters/791-portrait.webp"
+    ]
+  },
+  "794": {
+    "portrait": "/assets/characters/794-portrait.webp",
+    "gallery": [
+      "/assets/characters/794-portrait.webp"
+    ]
+  },
+  "799": {
+    "portrait": "/assets/characters/799-portrait.webp",
+    "gallery": [
+      "/assets/characters/799-portrait.webp"
+    ]
+  },
+  "806": {
+    "portrait": "/assets/characters/806-portrait.webp",
+    "gallery": [
+      "/assets/characters/806-portrait.webp"
+    ]
+  },
+  "809": {
+    "portrait": "/assets/characters/809-portrait.webp",
+    "gallery": [
+      "/assets/characters/809-portrait.webp"
+    ]
+  },
+  "813": {
+    "portrait": "/assets/characters/813-portrait.webp",
+    "gallery": [
+      "/assets/characters/813-portrait.webp"
+    ]
+  },
+  "818": {
+    "portrait": "/assets/characters/818-portrait.webp",
+    "gallery": [
+      "/assets/characters/818-portrait.webp"
+    ]
+  },
+  "831": {
+    "portrait": "/assets/characters/831-portrait.webp",
+    "gallery": [
+      "/assets/characters/831-portrait.webp"
+    ]
+  },
+  "851": {
+    "portrait": "/assets/characters/851-portrait.png",
+    "gallery": [
+      "/assets/characters/851-portrait.png"
+    ]
+  },
+  "860": {
+    "portrait": "/assets/characters/860-portrait.webp",
+    "gallery": [
+      "/assets/characters/860-portrait.webp"
+    ]
+  },
+  "865": {
+    "portrait": "/assets/portraits/minato-namikaze.png",
+    "gallery": [
+      "/assets/portraits/minato-namikaze.png"
+    ]
+  },
+  "870": {
+    "portrait": "/assets/characters/870-portrait.jpg",
+    "gallery": [
+      "/assets/characters/870-portrait.jpg"
+    ]
+  },
+  "876": {
+    "portrait": "/assets/characters/876-portrait.webp",
+    "gallery": [
+      "/assets/characters/876-portrait.webp"
+    ]
+  },
+  "877": {
+    "portrait": "/assets/characters/877-portrait.webp",
+    "gallery": [
+      "/assets/characters/877-portrait.webp"
+    ]
+  },
+  "878": {
+    "portrait": "/assets/characters/878-portrait.webp",
+    "gallery": [
+      "/assets/characters/878-portrait.webp"
+    ]
+  },
+  "880": {
+    "portrait": "/assets/characters/880-portrait.webp",
+    "gallery": [
+      "/assets/characters/880-portrait.webp"
+    ]
+  },
+  "886": {
+    "portrait": "/assets/characters/886-portrait.webp",
+    "gallery": [
+      "/assets/characters/886-portrait.webp"
+    ]
+  },
+  "920": {
+    "portrait": "/assets/characters/920-portrait.webp",
+    "gallery": [
+      "/assets/characters/920-portrait.webp"
+    ]
+  },
+  "925": {
+    "portrait": "/assets/characters/925-portrait.webp",
+    "gallery": [
+      "/assets/characters/925-portrait.webp"
+    ]
+  },
+  "928": {
+    "portrait": "/assets/portraits/orochimaru.png",
+    "gallery": [
+      "/assets/characters/928-gallery-0.webp",
+      "/assets/characters/928-gallery-1.webp",
+      "/assets/characters/928-scene-0.webp",
+      "/assets/characters/928-scene-1.png"
+    ]
+  },
+  "934": {
+    "portrait": "/assets/characters/934-portrait.webp",
+    "gallery": [
+      "/assets/characters/934-portrait.webp"
+    ]
+  },
+  "935": {
+    "portrait": "/assets/characters/935-portrait.webp",
+    "gallery": [
+      "/assets/characters/935-portrait.webp"
+    ]
+  },
+  "936": {
+    "portrait": "/assets/characters/936-portrait.webp",
+    "gallery": [
+      "/assets/characters/936-portrait.webp"
+    ]
+  },
+  "938": {
+    "portrait": "/assets/characters/938-portrait.webp",
+    "gallery": [
+      "/assets/characters/938-portrait.webp"
+    ]
+  },
+  "940": {
+    "portrait": "/assets/characters/940-portrait.webp",
+    "gallery": [
+      "/assets/characters/940-portrait.webp"
+    ]
+  },
+  "942": {
+    "portrait": "/assets/characters/942-portrait.webp",
+    "gallery": [
+      "/assets/characters/942-portrait.webp"
+    ]
+  },
+  "944": {
+    "portrait": "/assets/characters/944-portrait.webp",
+    "gallery": [
+      "/assets/characters/944-portrait.webp"
+    ]
+  },
+  "945": {
+    "portrait": "/assets/characters/945-portrait.webp",
+    "gallery": [
+      "/assets/characters/945-portrait.webp"
+    ]
+  },
+  "967": {
+    "portrait": "/assets/characters/967-portrait.webp",
+    "gallery": [
+      "/assets/characters/967-portrait.webp"
+    ]
+  },
+  "1008": {
+    "portrait": "/assets/characters/1008-portrait.webp",
+    "gallery": [
+      "/assets/characters/1008-portrait.webp"
+    ]
+  },
+  "1009": {
+    "portrait": "/assets/characters/1009-portrait.webp",
+    "gallery": [
+      "/assets/characters/1009-portrait.webp"
+    ]
+  },
+  "1027": {
+    "portrait": "/assets/characters/1027-portrait.webp",
+    "gallery": [
+      "/assets/characters/1027-portrait.webp"
+    ]
+  },
+  "1034": {
+    "portrait": "/assets/characters/1034-portrait.webp",
+    "gallery": [
+      "/assets/characters/1034-portrait.webp"
+    ]
+  },
+  "1035": {
+    "portrait": "/assets/characters/1035-portrait.webp",
+    "gallery": [
+      "/assets/characters/1035-portrait.webp"
+    ]
+  },
+  "1036": {
+    "portrait": "/assets/characters/1036-portrait.webp",
+    "gallery": [
+      "/assets/characters/1036-portrait.webp"
+    ]
+  },
+  "1037": {
+    "portrait": "/assets/characters/1037-portrait.webp",
+    "gallery": [
+      "/assets/characters/1037-gallery-0.webp",
+      "/assets/characters/1037-gallery-1.webp",
+      "/assets/characters/1037-scene-0.jpg",
+      "/assets/characters/1037-scene-1.jpg"
+    ]
+  },
+  "1038": {
+    "portrait": "/assets/characters/1038-portrait.webp",
+    "gallery": [
+      "/assets/characters/1038-portrait.webp"
+    ]
+  },
+  "1042": {
+    "portrait": "/assets/characters/1042-portrait.webp",
+    "gallery": [
+      "/assets/characters/1042-portrait.webp"
+    ]
+  },
+  "1043": {
+    "portrait": "/assets/characters/1043-portrait.webp",
+    "gallery": [
+      "/assets/characters/1043-portrait.webp"
+    ]
+  },
+  "1044": {
+    "portrait": "/assets/characters/1044-portrait.webp",
+    "gallery": [
+      "/assets/characters/1044-portrait.webp"
+    ]
+  },
+  "1051": {
+    "portrait": "/assets/characters/1051-portrait.webp",
+    "gallery": [
+      "/assets/characters/1051-portrait.webp"
+    ]
+  },
+  "1062": {
+    "portrait": "/assets/characters/1062-portrait.webp",
+    "gallery": [
+      "/assets/characters/1062-portrait.webp"
+    ]
+  },
+  "1063": {
+    "portrait": "/assets/characters/1063-portrait.webp",
+    "gallery": [
+      "/assets/characters/1063-portrait.webp"
+    ]
+  },
+  "1065": {
+    "portrait": "/assets/characters/1065-portrait.webp",
+    "gallery": [
+      "/assets/characters/1065-portrait.webp"
+    ]
+  },
+  "1066": {
+    "portrait": "/assets/characters/1066-portrait.webp",
+    "gallery": [
+      "/assets/characters/1066-portrait.webp"
+    ]
+  },
+  "1091": {
+    "portrait": "/assets/characters/1091-portrait.webp",
+    "gallery": [
+      "/assets/characters/1091-portrait.webp"
+    ]
+  },
+  "1093": {
+    "portrait": "/assets/characters/1093-portrait.webp",
+    "gallery": [
+      "/assets/characters/1093-portrait.webp"
+    ]
+  },
+  "1094": {
+    "portrait": "/assets/characters/1094-portrait.webp",
+    "gallery": [
+      "/assets/characters/1094-portrait.webp"
+    ]
+  },
+  "1100": {
+    "portrait": "/assets/characters/1100-portrait.webp",
+    "gallery": [
+      "/assets/characters/1100-portrait.webp"
+    ]
+  },
+  "1104": {
+    "portrait": "/assets/characters/1104-portrait.jpg",
+    "gallery": [
+      "/assets/characters/1104-portrait.jpg"
+    ]
+  },
+  "1109": {
+    "portrait": "/assets/characters/1109-portrait.webp",
+    "gallery": [
+      "/assets/characters/1109-portrait.webp"
+    ]
+  },
+  "1120": {
+    "portrait": "/assets/characters/1120-portrait.webp",
+    "gallery": [
+      "/assets/characters/1120-portrait.webp"
+    ]
+  },
+  "1122": {
+    "portrait": "/assets/characters/1122-portrait.webp",
+    "gallery": [
+      "/assets/characters/1122-portrait.webp"
+    ]
+  },
+  "1123": {
+    "portrait": "/assets/characters/1123-portrait.webp",
+    "gallery": [
+      "/assets/characters/1123-portrait.webp"
+    ]
+  },
+  "1127": {
+    "portrait": "/assets/characters/1127-portrait.webp",
+    "gallery": [
+      "/assets/characters/1127-portrait.webp"
+    ]
+  },
+  "1134": {
+    "portrait": "/assets/characters/1134-portrait.webp",
+    "gallery": [
+      "/assets/characters/1134-portrait.webp"
+    ]
+  },
+  "1135": {
+    "portrait": "/assets/characters/1135-portrait.webp",
+    "gallery": [
+      "/assets/characters/1135-portrait.webp"
+    ]
+  },
+  "1143": {
+    "portrait": "/assets/characters/1143-portrait.png",
+    "gallery": [
+      "/assets/characters/1143-portrait.png"
+    ]
+  },
+  "1165": {
+    "portrait": "/assets/characters/1165-portrait.webp",
+    "gallery": [
+      "/assets/characters/1165-portrait.webp"
+    ]
+  },
+  "1183": {
+    "portrait": "/assets/characters/1183-portrait.webp",
+    "gallery": [
+      "/assets/characters/1183-portrait.webp"
+    ]
+  },
+  "1203": {
+    "portrait": "/assets/characters/1203-portrait.webp",
+    "gallery": [
+      "/assets/characters/1203-portrait.webp"
+    ]
+  },
+  "1208": {
+    "portrait": "/assets/characters/1208-portrait.webp",
+    "gallery": [
+      "/assets/characters/1208-portrait.webp"
+    ]
+  },
+  "1213": {
+    "portrait": "/assets/characters/1213-portrait.webp",
+    "gallery": [
+      "/assets/characters/1213-portrait.webp"
+    ]
+  },
+  "1216": {
+    "portrait": "/assets/characters/1216-portrait.webp",
+    "gallery": [
+      "/assets/characters/1216-portrait.webp"
+    ]
+  },
+  "1280": {
+    "portrait": "/assets/portraits/tsunade.png",
+    "gallery": [
+      "/assets/portraits/tsunade.png"
+    ]
+  },
+  "1289": {
+    "portrait": "/assets/characters/1289-portrait.webp",
+    "gallery": [
+      "/assets/characters/1289-portrait.webp"
+    ]
+  },
+  "1293": {
+    "portrait": "/assets/portraits/itachi-uchiha.png",
+    "gallery": [
+      "/assets/portraits/itachi-uchiha.png"
+    ]
+  },
+  "1296": {
+    "portrait": "/assets/characters/1296-portrait.webp",
+    "gallery": [
+      "/assets/characters/1296-portrait.webp"
+    ]
+  },
+  "1297": {
+    "portrait": "/assets/characters/1297-portrait.webp",
+    "gallery": [
+      "/assets/characters/1297-portrait.webp"
+    ]
+  },
+  "1299": {
+    "portrait": "/assets/characters/1299-portrait.webp",
+    "gallery": [
+      "/assets/characters/1299-gallery-0.webp",
+      "/assets/characters/1299-scene-0.jpg",
+      "/assets/characters/1299-scene-1.jpg"
+    ]
+  },
+  "1300": {
+    "portrait": "/assets/characters/1300-portrait.webp",
+    "gallery": [
+      "/assets/characters/1300-portrait.webp"
+    ]
+  },
+  "1303": {
+    "portrait": "/assets/characters/1303-portrait.webp",
+    "gallery": [
+      "/assets/characters/1303-gallery-0.webp",
+      "/assets/characters/1303-gallery-1.webp",
+      "/assets/characters/1303-scene-0.jpg",
+      "/assets/characters/1303-scene-1.jpg"
+    ]
+  },
+  "1304": {
+    "portrait": "/assets/characters/1304-portrait.webp",
+    "gallery": [
+      "/assets/characters/1304-portrait.webp"
+    ]
+  },
+  "1306": {
+    "portrait": "/assets/characters/1306-portrait.webp",
+    "gallery": [
+      "/assets/characters/1306-portrait.webp"
+    ]
+  },
+  "1307": {
+    "portrait": "/assets/portraits/sasuke-uchiha.png",
+    "gallery": [
+      "/assets/characters/1307-gallery-0.webp",
+      "/assets/characters/1307-gallery-1.webp",
+      "/assets/characters/1307-scene-0.jpg",
+      "/assets/characters/1307-scene-1.jpg"
+    ]
+  },
+  "1309": {
+    "portrait": "/assets/characters/1309-portrait.webp",
+    "gallery": [
+      "/assets/characters/1309-portrait.webp"
+    ]
+  },
+  "1310": {
+    "portrait": "/assets/characters/1310-portrait.webp",
+    "gallery": [
+      "/assets/characters/1310-portrait.webp"
+    ]
+  },
+  "1312": {
+    "portrait": "/assets/characters/1312-portrait.webp",
+    "gallery": [
+      "/assets/characters/1312-portrait.webp"
+    ]
+  },
+  "1332": {
+    "portrait": "/assets/characters/1332-portrait.webp",
+    "gallery": [
+      "/assets/characters/1332-portrait.webp"
+    ]
+  },
+  "1335": {
+    "portrait": "/assets/characters/1335-portrait.webp",
+    "gallery": [
+      "/assets/characters/1335-portrait.webp"
+    ]
+  },
+  "1339": {
+    "portrait": "/assets/characters/1339-portrait.webp",
+    "gallery": [
+      "/assets/characters/1339-portrait.webp"
+    ]
+  },
+  "1340": {
+    "portrait": "/assets/characters/1340-portrait.jpg",
+    "gallery": [
+      "/assets/characters/1340-portrait.jpg"
+    ]
+  },
+  "1341": {
+    "portrait": "/assets/characters/1341-portrait.webp",
+    "gallery": [
+      "/assets/characters/1341-portrait.webp"
+    ]
+  },
+  "1343": {
+    "portrait": "/assets/characters/1343-portrait.webp",
+    "gallery": [
+      "/assets/characters/1343-portrait.webp"
+    ]
+  },
+  "1344": {
+    "portrait": "/assets/portraits/naruto-uzumaki.png",
+    "gallery": [
+      "/assets/characters/1344-gallery-0.webp",
+      "/assets/characters/1344-gallery-1.webp",
+      "/assets/characters/1344-scene-0.jpg",
+      "/assets/characters/1344-scene-1.webp"
+    ]
+  },
+  "1346": {
+    "portrait": "/assets/characters/1346-portrait.webp",
+    "gallery": [
+      "/assets/characters/1346-portrait.webp"
+    ]
+  },
+  "1359": {
+    "portrait": "/assets/characters/1359-portrait.webp",
+    "gallery": [
+      "/assets/characters/1359-gallery-0.webp",
+      "/assets/characters/1359-gallery-1.webp",
+      "/assets/characters/1359-scene-1.jpg"
+    ]
+  },
+  "1361": {
+    "portrait": "/assets/characters/1361-portrait.webp",
+    "gallery": [
+      "/assets/characters/1361-portrait.webp"
+    ]
+  },
+  "1365": {
+    "portrait": "/assets/characters/1365-portrait.webp",
+    "gallery": [
+      "/assets/characters/1365-portrait.webp"
+    ]
+  },
+  "1366": {
+    "portrait": "/assets/characters/1366-portrait.webp",
+    "gallery": [
+      "/assets/characters/1366-portrait.webp"
+    ]
+  },
+  "1367": {
+    "portrait": "/assets/characters/1367-portrait.webp",
+    "gallery": [
+      "/assets/characters/1367-portrait.webp"
+    ]
+  },
+  "1368": {
+    "portrait": "/assets/characters/1368-portrait.webp",
+    "gallery": [
+      "/assets/characters/1368-portrait.webp"
+    ]
+  },
+  "1373": {
+    "portrait": "/assets/characters/1373-portrait.webp",
+    "gallery": [
+      "/assets/characters/1373-gallery-0.webp",
+      "/assets/characters/1373-gallery-1.webp",
+      "/assets/characters/1373-scene-0.webp",
+      "/assets/characters/1373-scene-1.jpg"
+    ]
+  },
+  "1376": {
+    "portrait": "/assets/characters/1376-portrait.webp",
+    "gallery": [
+      "/assets/characters/1376-portrait.webp"
+    ]
+  },
+  "1397": {
+    "portrait": "/assets/characters/1397-portrait.webp",
+    "gallery": [
+      "/assets/characters/1397-portrait.webp"
+    ]
+  },
+  "1400": {
+    "portrait": "/assets/characters/1400-portrait.webp",
+    "gallery": [
+      "/assets/characters/1400-portrait.webp"
+    ]
+  },
+  "1425": {
+    "portrait": "/assets/characters/1425-portrait.webp",
+    "gallery": [
+      "/assets/characters/1425-portrait.webp"
+    ]
+  },
+  "1426": {
+    "portrait": "/assets/characters/1426-portrait.webp",
+    "gallery": [
+      "/assets/characters/1426-portrait.webp"
+    ]
+  }
+}
