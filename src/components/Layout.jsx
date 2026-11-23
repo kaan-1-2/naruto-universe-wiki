@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon.jsx';
 import { useSavedCollection } from '../context/CollectionContext.jsx';
@@ -9,7 +9,7 @@ const navItems = [
   ['/villages', 'Villages', 'map'],
   ['/anime', 'Anime & Movies', 'film'],
   ['/compare', 'Compare', 'compare'],
-  ['/ninja-dash', 'Game', 'game'],
+  ['/ninja-dash', 'Shinobi Dash', 'game'],
 ];
 export default function Layout({ children }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,6 +17,18 @@ export default function Layout({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { compare } = useSavedCollection();
+  const contentRef = useRef(null);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const animation = contentRef.current?.animate(
+      [
+        { filter: 'blur(1.5px)', opacity: 0.92 },
+        { filter: 'blur(0px)', opacity: 1 },
+      ],
+      { duration: 420, easing: 'ease-out' },
+    );
+    return () => animation?.cancel();
+  }, [location.pathname]);
   useEffect(() => {
     window.scrollTo(0, 0);
     setMobileOpen(false);
@@ -109,10 +121,22 @@ export default function Layout({ children }) {
         )}
       </header>
       <div key={location.pathname} className="route-transition-overlay" aria-hidden="true">
-        <span className="route-parchment" />
+        {[0, 1, 2, 3].map((leaf) => (
+          <span key={leaf} className={`route-leaf route-leaf-${leaf}`}>
+            <svg viewBox="0 0 32 44" fill="none">
+              <path d="M27 3C12 5 1 13 4 26c2 9 11 12 17 6 8-8 5-18 6-29Z" fill="currentColor" />
+              <path
+                d="M7 41C10 28 16 19 24 8M11 29l-5-8m9 1 7 1"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+        ))}
       </div>
       <main id="main-content" className="route-stage">
-        <div>{children}</div>
+        <div ref={contentRef}>{children}</div>
       </main>
       <footer className="wiki-footer page-width">
         <Link to="/" className="footer-brand">

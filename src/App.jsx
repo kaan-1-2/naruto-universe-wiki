@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage.jsx';
 import NinjaDashPage from './pages/NinjaDashPage.jsx';
 import CharacterNameRedirect from './pages/CharacterNameRedirect.jsx';
 import AnimePage from './pages/AnimePage.jsx';
+import KunaiChallengePage from './pages/KunaiChallengePage.jsx';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/favorites" element={<FavoritesPage />} />
         <Route path="/compare" element={<ComparePage />} />
         <Route path="/ninja-dash" element={<NinjaDashPage />} />
+        <Route path="/kunai-challenge" element={<KunaiChallengePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>

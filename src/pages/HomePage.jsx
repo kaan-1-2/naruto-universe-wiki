@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Icon from '../components/Icon.jsx';
 import ShinobiTile from '../components/ShinobiTile.jsx';
+import KunaiHomeTargets from '../components/KunaiHomeTargets.jsx';
 import { ErrorState, LoadingGrid } from '../components/Status.jsx';
 import { useFeaturedCharacters } from '../hooks/useArchive.js';
 
@@ -31,6 +32,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <div className="hero-parchment-divider" aria-hidden="true">
+        <span>
+          <img src="/assets/motifs/leaf.svg" alt="" />
+        </span>
+      </div>
       <div className="parchment home-parchment">
         <section className="world-section page-width">
           <div className="world-copy">
@@ -81,6 +87,7 @@ export default function HomePage() {
             </div>
           )}
         </section>
+        <KunaiHomeTargets />
         <section className="quick-paths page-width" aria-label="Explore the archive">
           {[
             {
@@ -100,7 +107,7 @@ export default function HomePage() {
             {
               to: '/ninja-dash',
               icon: 'game',
-              title: 'Shinobi Game',
+              title: 'Shinobi Dash',
               text: 'Play Shinobi Dash and test your reflexes!',
               art: 'shuriken-run',
             },
