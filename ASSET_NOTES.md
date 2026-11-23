@@ -1,17 +1,17 @@
-# Görsel kaynakları
+# Asset Sources
 
-## Karakterler ve galeriler
+## Characters and Galleries
 
-- Karakter kayıtları ve temel görsel adresleri: [Dattebayo API](https://dattebayo-api.onrender.com/characters) ve [Narutopedia](https://naruto.fandom.com/wiki/Narutopedia).
-- Galeri kaynak adresleri: `src/data/gallery-sources.json`.
-- Karakter görsel eşlemeleri: `src/data/character-images.json`.
-- Karakter görselleri: `public/assets/characters/` ve `public/assets/portraits/`.
-- Galerilerde Naruto Official, Narutopedia, Sportskeeda, Zerochan ve ilgili anime görsel arşivlerinden alınan görüntüler bulunur. Bu görseller Naruto serisinin hak sahiplerine ve ilgili sanatçılara aittir.
-- Yayınlanmış portresi bulunmayan kayıtlarda portre yokluğu açıkça belirtilir.
+- Character records and primary image URLs: [Dattebayo API](https://dattebayo-api.onrender.com/characters) and [Narutopedia](https://naruto.fandom.com/wiki/Narutopedia).
+- Gallery source URLs: `src/data/gallery-sources.json`.
+- Character image mappings: `src/data/character-images.json`.
+- Character images: `public/assets/characters/` and `public/assets/portraits/`.
+- Galleries include images from Naruto Official, Narutopedia, Sportskeeda, Zerochan, and related anime image archives. These images belong to the Naruto franchise's rights holders and the respective artists.
+- Records without a published portrait explicitly indicate that the portrait is unavailable.
 
-## Dekoratif görseller
+## Decorative Assets
 
-- `konoha-panorama.png` ve `shinobi-atlas.png`: yapay zekâ ile üretilmiş tematik illüstrasyonlar; resmî anime görüntüsü veya coğrafi harita değildir.
-- `banners/`, `villages/` ve `abilities/`: tema, yer ve teknik görselleri.
-- `motifs/` ve `paper-grain.svg`: SVG simgeler ve parşömen dokusu.
-- Klan simgeleri ve oyun sahneleri SVG / Canvas ile çizilir.
+- `konoha-panorama.png` and `shinobi-atlas.png`: AI-generated thematic illustrations rather than official anime artwork or a geographic map.
+- `banners/`, `villages/`, and `abilities/`: thematic, location, and technique illustrations.
+- `motifs/` and `paper-grain.svg`: decorative emblems, SVG motifs, and parchment texture.
+- Clan symbols and game scenes are drawn using SVG and Canvas.

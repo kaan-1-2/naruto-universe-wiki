@@ -1,10 +1,10 @@
-# Testler
+# Testing
 
 ```bash
 npm test
 npm run build
 ```
 
-Testler; API hata yönetimini, kayıt biçimlendirmeyi, isim eşleştirmelerini, yerel görselleri ve oyun fiziğini doğrular. Oyun testleri; çatıya iniş, çatıdan düşüş, eğimli arazi, bina çarpışması, çift zıplama, duraklatma, skor ve etap geçişlerini kapsar.
+The tests verify API error handling, record formatting, name matching, local image assets, and game physics. Game tests cover rooftop landings, falling off rooftops, sloped terrain, building collisions, double jumps, pausing, scoring, and stage transitions.
 
-Tarayıcı kontrollerinde aile kartlarının ilgili profile açılması, favorilerin kalıcılığı, Compare düğmesinin karşılaştırma ekranına geçişi, galeri yüklenmesi, mobil menü ve hata mesajlarının okunabilirliği incelenir.
+Browser checks cover family cards opening the correct profiles, persistent favorites, the Compare button navigating to the comparison page, gallery loading, the mobile menu, and readable error messages.
