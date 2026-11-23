@@ -120,8 +120,12 @@ export default function Layout({ children }) {
           </nav>
         )}
       </header>
+      <div key={location.pathname} className="route-transition-overlay" aria-hidden="true">
+        <span className="route-brush route-brush-dark" />
+        <span className="route-brush route-brush-red" />
+        <span className="route-smoke" />
+      </div>
       <main id="main-content" className="route-stage">
-        <span key={location.pathname} className="route-ink-flash" aria-hidden="true" />
         <div ref={contentRef}>{children}</div>
       </main>
       <footer className="wiki-footer page-width">

@@ -17,35 +17,108 @@
   position: relative;
   isolation: isolate;
 }
-.route-ink-flash {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 7px;
-  z-index: 2;
+.route-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
   pointer-events: none;
-  opacity: 0;
-  background: linear-gradient(90deg, transparent, #972c21 20%, #dd6835 72%, transparent);
-  clip-path: polygon(0 20%, 87% 0, 100% 45%, 78% 80%, 5% 100%, 13% 60%);
-  transform-origin: left center;
-  animation: ink-route-sweep 420ms ease-out;
+  overflow: hidden;
 }
-@keyframes ink-route-sweep {
+.route-brush {
+  position: absolute;
+  width: 180vw;
+  height: 65vh;
+  min-height: 280px;
+  top: 12vh;
+  left: -40vw;
+  opacity: 0;
+  clip-path: polygon(
+    0 13%,
+    8% 5%,
+    31% 9%,
+    48% 0,
+    64% 7%,
+    88% 2%,
+    100% 12%,
+    94% 24%,
+    100% 32%,
+    95% 51%,
+    100% 65%,
+    91% 72%,
+    98% 91%,
+    70% 94%,
+    58% 88%,
+    37% 100%,
+    17% 92%,
+    0 97%,
+    5% 75%,
+    0 58%,
+    4% 39%
+  );
+  animation: shinobi-brush-sweep 620ms cubic-bezier(0.45, 0, 0.25, 1) both;
+}
+.route-brush-dark {
+  background: repeating-linear-gradient(
+    177deg,
+    #131315 0 14px,
+    #252024 14px 17px,
+    #131315 17px 31px
+  );
+}
+.route-brush-red {
+  top: 27vh;
+  height: 34vh;
+  min-height: 160px;
+  background: repeating-linear-gradient(
+    178deg,
+    #a92d26 0 11px,
+    #be4930 11px 13px,
+    #8d231e 13px 26px
+  );
+  animation-delay: 45ms;
+}
+.route-smoke {
+  position: absolute;
+  inset: -15%;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 20% 55%, #262127bb, transparent 38%),
+    radial-gradient(ellipse at 65% 40%, #d0b69a99, transparent 36%),
+    radial-gradient(ellipse at 85% 70%, #3b2c2e88, transparent 35%);
+  animation: shinobi-smoke-clear 680ms ease-out both;
+}
+@keyframes shinobi-brush-sweep {
   0% {
     opacity: 0;
-    transform: scaleX(0.05);
+    transform: translateX(-115%) rotate(-17deg);
   }
-  30% {
-    opacity: 0.95;
+  12% {
+    opacity: 0.98;
   }
-  65% {
-    opacity: 0.7;
-    transform: scaleX(1);
+  42% {
+    opacity: 0.98;
+    transform: translateX(-4%) rotate(-17deg);
+  }
+  68% {
+    opacity: 0.94;
   }
   100% {
     opacity: 0;
-    transform: scaleX(1);
+    transform: translateX(115%) rotate(-17deg);
+  }
+}
+@keyframes shinobi-smoke-clear {
+  0%,
+  18% {
+    opacity: 0;
+    transform: scale(0.85) translateX(-12%);
+  }
+  46% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.14) translateX(14%);
   }
 }
 .shinobi-loading {
@@ -174,6 +247,7 @@ a:focus-visible {
 .wiki-shell > main {
   min-height: 70vh;
   background-color: var(--paper);
+  background-blend-mode: multiply, normal, normal, normal;
   background-image:
     url('/assets/motifs/akatsuki-pattern.svg'), url('/assets/paper-grain.svg'),
     radial-gradient(ellipse at 5% 40%, #bd795b25, transparent 45%),
@@ -398,6 +472,7 @@ a:focus-visible {
 .scroll-panel {
   color: var(--ink);
   background-color: var(--paper);
+  background-blend-mode: multiply, normal, normal, normal;
   background-image:
     url('/assets/motifs/akatsuki-pattern.svg'), url('/assets/paper-grain.svg'),
     radial-gradient(ellipse at 0 0, #fff3d866, transparent 55%),
@@ -437,9 +512,7 @@ a:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    url('/assets/motifs/cloud.svg') left -65px top 0/155px no-repeat,
-    url('/assets/motifs/cloud.svg') right -70px bottom -12px/240px no-repeat;
+  background: none;
   opacity: 0.42;
 }
 .world-section {
