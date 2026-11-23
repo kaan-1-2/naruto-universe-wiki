@@ -2466,11 +2466,18 @@ main .bg-\[\#152034\] p {
 .wiki-wordmark .wiki-emblem img {
   position: absolute;
   width: 147px;
-  height: 110px;
+  height: auto;
   max-width: none;
   left: -48px;
   top: -24px;
   filter: none;
+}
+.wiki-wordmark-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+  padding-top: 4px;
 }
 .kunai-wood-chips {
   opacity: 0;

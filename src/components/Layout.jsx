@@ -62,10 +62,9 @@ export default function Layout({ children }) {
             <span className="wiki-emblem" aria-hidden="true">
               <img src="/assets/motifs/leaf-emblem.png" alt="" />
             </span>
-            <span>
-              Naruto Universe
-              <br />
-              Wiki
+            <span className="wiki-wordmark-text">
+              <span>Naruto Universe</span>
+              <span>Wiki</span>
             </span>
           </Link>
           <nav className="desktop-navigation" aria-label="Main navigation">
