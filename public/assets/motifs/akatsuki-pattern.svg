@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="760" viewBox="0 0 840 760">
+  <defs>
+    <g id="cloud">
+      <path d="M34 122C10 124-3 110 4 91c5-13 18-19 32-14-4-22 9-40 29-41 15-1 27 6 34 19 4-25 25-43 48-39 23 3 36 22 34 43 21-7 43 4 46 23 4 18-7 31-25 35 9 4 22 3 34-4-5 18-21 30-43 30H55c-21 0-32-7-36-18 10 5 19 5 29 1 9-4 15-11 15-19-8 10-18 15-29 15Z" fill="#a4372c" fill-opacity=".11" stroke="#87352d" stroke-opacity=".17" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M102 88c-8-14 0-30 15-31 12-2 22 6 22 16 0 8-6 12-13 11" fill="none" stroke="#87352d" stroke-opacity=".16" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <use href="#cloud" transform="translate(40 60) rotate(-14 100 65) scale(.72)"/>
+  <use href="#cloud" transform="translate(560 185) rotate(13 100 65) scale(.94)"/>
+  <use href="#cloud" transform="translate(180 415) rotate(10 100 65) scale(.86)"/>
+  <use href="#cloud" transform="translate(610 615) rotate(-17 100 65) scale(.62)"/>
+</svg>

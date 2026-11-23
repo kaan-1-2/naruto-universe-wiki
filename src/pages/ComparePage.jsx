@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../components/Icon.jsx';
+import ShinobiLoading from '../components/ShinobiLoading.jsx';
 import { PageIntro, ErrorState } from '../components/Status.jsx';
 import { Portrait } from '../components/ArchiveCard.jsx';
 import { useSavedCollection } from '../context/CollectionContext.jsx';
@@ -98,12 +99,7 @@ export default function ComparePage() {
       ) : state.error ? (
         <ErrorState message={state.error} onRetry={() => setRetry((x) => x + 1)} />
       ) : state.loading ? (
-        <div
-          role="status"
-          className="rounded-2xl border border-white/10 p-12 text-center text-slate-300"
-        >
-          Loading character details...
-        </div>
+        <ShinobiLoading label="Loading character details…" />
       ) : (
         <>
           <div className="grid gap-4 md:grid-cols-2">

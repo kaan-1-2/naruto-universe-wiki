@@ -62,7 +62,7 @@ export default function AnimePage() {
       {state.loading ? (
         <>
           <h1 className="screen-loading-title">Opening the screen archive…</h1>
-          <LoadingGrid />
+          <LoadingGrid label="Loading anime & movies…" />
         </>
       ) : state.error ? (
         <ErrorState message={state.error} onRetry={() => setRetry((n) => n + 1)} />

@@ -12,6 +12,113 @@
   --red: #ab3027;
   --gold: #d1a16b;
 }
+
+.route-stage {
+  position: relative;
+  isolation: isolate;
+}
+.route-ink-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(90deg, transparent, #972c21 20%, #dd6835 72%, transparent);
+  clip-path: polygon(0 20%, 87% 0, 100% 45%, 78% 80%, 5% 100%, 13% 60%);
+  transform-origin: left center;
+  animation: ink-route-sweep 420ms ease-out;
+}
+@keyframes ink-route-sweep {
+  0% {
+    opacity: 0;
+    transform: scaleX(0.05);
+  }
+  30% {
+    opacity: 0.95;
+  }
+  65% {
+    opacity: 0.7;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+.shinobi-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 36px 16px;
+  color: #813426;
+}
+.shuriken-seal {
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 78px;
+  height: 78px;
+  flex: none;
+  border: 1px solid #a74c3540;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e29a4030, transparent 70%);
+}
+.shuriken-seal::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border: 1px dashed #9f3d2a80;
+  border-radius: 50%;
+  animation: shuriken-turn 8s linear infinite reverse;
+}
+.loading-shuriken {
+  width: 54px;
+  height: 54px;
+  color: #333439;
+  filter: drop-shadow(0 2px 2px #562b2340);
+  animation: shuriken-turn 1.2s linear infinite;
+}
+.shinobi-loading-label {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.shinobi-loading-compact {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 16px 0 4px;
+}
+.shinobi-loading-compact .shuriken-seal {
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background: none;
+}
+.shinobi-loading-compact .shuriken-seal::before {
+  display: none;
+}
+.shinobi-loading-compact .loading-shuriken {
+  width: 24px;
+  height: 24px;
+}
+.shinobi-loading-compact .shinobi-loading-label {
+  font-size: 14px;
+  letter-spacing: 0;
+}
+.archive-loading {
+  min-height: 280px;
+}
+@keyframes shuriken-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -68,7 +175,8 @@ a:focus-visible {
   min-height: 70vh;
   background-color: var(--paper);
   background-image:
-    url('/assets/paper-grain.svg'), radial-gradient(ellipse at 5% 40%, #bd795b25, transparent 45%),
+    url('/assets/motifs/akatsuki-pattern.svg'), url('/assets/paper-grain.svg'),
+    radial-gradient(ellipse at 5% 40%, #bd795b25, transparent 45%),
     linear-gradient(110deg, #f7e8cd, #e8cc9f);
 }
 .wiki-header {
@@ -291,7 +399,8 @@ a:focus-visible {
   color: var(--ink);
   background-color: var(--paper);
   background-image:
-    url('/assets/paper-grain.svg'), radial-gradient(ellipse at 0 0, #fff3d866, transparent 55%),
+    url('/assets/motifs/akatsuki-pattern.svg'), url('/assets/paper-grain.svg'),
+    radial-gradient(ellipse at 0 0, #fff3d866, transparent 55%),
     linear-gradient(100deg, #f6e6c9, #eddbb9 60%, #e6c69e);
 }
 .home-parchment {

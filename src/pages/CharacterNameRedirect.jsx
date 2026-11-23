@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ShinobiLoading from '../components/ShinobiLoading.jsx';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { fetchCollection } from '../services/api.js';
 import { findCharacterByName, normalizeCharacterName } from '../utils/characterDirectory.js';
@@ -45,9 +46,13 @@ export default function CharacterNameRedirect() {
       <h1 className="font-display text-4xl font-bold">
         {state === 'loading' ? `Finding ${name}...` : 'Character not found'}
       </h1>
-      <p className="mt-4" role="status">
-        {state === 'loading' ? 'Opening the related shinobi profile.' : message}
-      </p>
+      {state === 'loading' ? (
+        <ShinobiLoading label="Opening the related shinobi profile…" />
+      ) : (
+        <p className="mt-4" role="status">
+          {message}
+        </p>
+      )}
       <Link to={`/characters?search=${encodeURIComponent(name)}`} className="ink-button mt-6">
         Search characters
       </Link>

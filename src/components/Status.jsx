@@ -1,24 +1,24 @@
 import Icon from './Icon.jsx';
+import ShinobiLoading from './ShinobiLoading.jsx';
 
-export function LoadingGrid({ count = 8 }) {
+export function LoadingGrid({ count = 8, label = 'Loading the shinobi archive…' }) {
   return (
-    <div
-      aria-label="Loading characters"
-      role="status"
-      className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-    >
-      {Array.from({ length: count }, (_, index) => (
-        <div
-          key={index}
-          className="loading-card animate-pulse overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-        >
-          <div className="h-52 bg-white/10" />
-          <div className="space-y-3 p-5">
-            <div className="h-4 w-3/4 rounded bg-white/10" />
-            <div className="h-3 w-1/2 rounded bg-white/10" />
+    <div className="archive-loading">
+      <ShinobiLoading label={label} />
+      <div aria-hidden="true" className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {Array.from({ length: count }, (_, index) => (
+          <div
+            key={index}
+            className="loading-card animate-pulse overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+          >
+            <div className="h-52 bg-white/10" />
+            <div className="space-y-3 p-5">
+              <div className="h-4 w-3/4 rounded bg-white/10" />
+              <div className="h-3 w-1/2 rounded bg-white/10" />
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

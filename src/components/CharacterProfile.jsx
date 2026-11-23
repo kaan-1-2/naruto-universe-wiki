@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Portrait } from './ArchiveCard.jsx';
 import Icon from './Icon.jsx';
+import ShinobiLoading from './ShinobiLoading.jsx';
 import { useSavedCollection } from '../context/CollectionContext.jsx';
 import {
   asStringArray,
@@ -151,11 +152,7 @@ export default function CharacterProfile({ item: baseItem }) {
               <section className="paper-panel">
                 <h2 className="brush-heading">About</h2>
                 <p>{biography}</p>
-                {loadingExtra && (
-                  <p role="status" className="biography-loading">
-                    Loading additional details…
-                  </p>
-                )}
+                {loadingExtra && <ShinobiLoading compact label="Loading additional details…" />}
                 {extra?.biography && (
                   <>
                     <details className="full-biography">

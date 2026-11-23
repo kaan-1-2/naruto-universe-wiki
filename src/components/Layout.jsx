@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import Icon from './Icon.jsx';
 import { useSavedCollection } from '../context/CollectionContext.jsx';
@@ -17,6 +17,18 @@ export default function Layout({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
   const { compare } = useSavedCollection();
+  const contentRef = useRef(null);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const animation = contentRef.current?.animate(
+      [
+        { opacity: 0.65, transform: 'translateY(5px)' },
+        { opacity: 1, transform: 'translateY(0)' },
+      ],
+      { duration: 220, easing: 'ease-out' },
+    );
+    return () => animation?.cancel();
+  }, [location.pathname]);
   useEffect(() => {
     window.scrollTo(0, 0);
     setMobileOpen(false);
@@ -108,7 +120,10 @@ export default function Layout({ children }) {
           </nav>
         )}
       </header>
-      <main id="main-content">{children}</main>
+      <main id="main-content" className="route-stage">
+        <span key={location.pathname} className="route-ink-flash" aria-hidden="true" />
+        <div ref={contentRef}>{children}</div>
+      </main>
       <footer className="wiki-footer page-width">
         <Link to="/" className="footer-brand">
           Naruto Universe Wiki
