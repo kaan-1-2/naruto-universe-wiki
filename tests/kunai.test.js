@@ -19,9 +19,14 @@ test('kunai scoring rewards accuracy and ignores throws outside an active round'
   assert.equal(state.hits, 3);
   assert.equal(hitKunaiTarget(state, 1).misses, 1);
 });
-test('difficulty grows with hits while target size and speed stay bounded', () => {
+test('stages speed up a single target before adding more targets', () => {
+  assert.equal(kunaiDifficulty(0).targetCount, 1);
+  assert.equal(kunaiDifficulty(5).targetCount, 1);
+  assert.equal(kunaiDifficulty(10).targetCount, 1);
+  assert.equal(kunaiDifficulty(15).targetCount, 2);
+  assert.equal(kunaiDifficulty(30).targetCount, 3);
+  assert.equal(kunaiDifficulty(45).targetCount, 4);
   assert.ok(kunaiDifficulty(10).speed > kunaiDifficulty(0).speed);
-  assert.ok(kunaiDifficulty(10).scale < kunaiDifficulty(0).scale);
   assert.equal(kunaiDifficulty(1000).level, 10);
   assert.ok(kunaiDifficulty(1000).scale >= 0.52);
   for (let time = 0; time < 45; time += 0.1) {
@@ -31,9 +36,10 @@ test('difficulty grows with hits while target size and speed stay bounded', () =
     }
   }
 });
-test('round ends after five misses or 45 active seconds and pause freezes time', () => {
+test('first miss ends the round immediately; time limit and pause remain effective', () => {
   let state = createKunaiGame('running');
-  for (let i = 0; i < 5; i++) state = missKunaiTarget(state);
+  state = missKunaiTarget(state);
+  assert.equal(state.misses, 1);
   assert.equal(state.status, 'finished');
   assert.equal(hitKunaiTarget(state, 0), state);
   const paused = { ...createKunaiGame(), status: 'paused' };

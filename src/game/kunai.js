@@ -1,12 +1,18 @@
 export const ROUND_SECONDS = 45;
-export const MAX_MISSES = 5;
+export const MAX_MISSES = 1;
 
 export function createKunaiGame(status = 'ready') {
   return { status, score: 0, hits: 0, misses: 0, elapsed: 0 };
 }
 export function kunaiDifficulty(hits) {
   const level = Math.min(10, 1 + Math.floor(hits / 5));
-  return { level, speed: 0.8 + (level - 1) * 0.18, scale: Math.max(0.52, 1 - (level - 1) * 0.055) };
+  const targetCount = Math.min(4, 1 + Math.floor((level - 1) / 3));
+  return {
+    level,
+    targetCount,
+    speed: 0.72 + Math.min(level - 1, 2) * 0.28 + Math.max(0, level - 3) * 0.12,
+    scale: targetCount > 2 ? 0.8 : 1,
+  };
 }
 export function targetPosition(elapsed, side, hits) {
   const phase = elapsed * kunaiDifficulty(hits).speed + side * Math.PI;

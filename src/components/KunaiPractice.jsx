@@ -18,7 +18,7 @@ function Target({ side, hits, onStrike, active, scale, buttonRef }) {
       className="kunai-target"
       disabled={!active}
       style={{ width: 'calc(var(--target-size) * ' + scale + ')' }}
-      aria-label={'Throw a kunai at the ' + (side === 0 ? 'left' : 'right') + ' target'}
+      aria-label={'Throw a kunai at target ' + (side + 1)}
       onClick={(event) => onStrike(event, side)}
     >
       <KunaiTargetArt hits={hits} />
@@ -28,7 +28,7 @@ function Target({ side, hits, onStrike, active, scale, buttonRef }) {
 
 function readBest() {
   try {
-    const value = Number(localStorage.getItem('shinobi:kunai-best'));
+    const value = Number(localStorage.getItem('shinobi:kunai-best-v2'));
     return Number.isFinite(value) && value > 0 ? value : 0;
   } catch {
     return 0;
@@ -41,6 +41,7 @@ export default function KunaiPractice() {
   const targets = useRef([]);
   const shotId = useRef(0);
   const motionClock = useRef(0);
+  const impactUntil = useRef([]);
   const [shots, setShots] = useState([]);
   const [best, setBest] = useState(readBest);
   const [message, setMessage] = useState('Hit the moving targets. The centre earns more points.');
@@ -83,6 +84,7 @@ export default function KunaiPractice() {
         setGame(next);
       targets.current.forEach((target, side) => {
         if (!target) return;
+        if (performance.now() < (impactUntil.current[side] || 0)) return;
         const point = targetPosition(
           reducedMotion ? next.hits * 0.8 : motionClock.current / speed,
           side,
@@ -100,7 +102,7 @@ export default function KunaiPractice() {
     if (game.status !== 'finished' || game.score <= best) return;
     setBest(game.score);
     try {
-      localStorage.setItem('shinobi:kunai-best', String(game.score));
+      localStorage.setItem('shinobi:kunai-best-v2', String(game.score));
     } catch {
       /* Scores remain available for this session. */
     }
@@ -110,7 +112,8 @@ export default function KunaiPractice() {
     setShots([]);
     shotId.current = 0;
     motionClock.current = 0;
-    setMessage('Aim for the centre. Every five hits raises the difficulty.');
+    impactUntil.current = [];
+    setMessage('One target to start. Aim carefully: one miss ends the round.');
     commit(createKunaiGame('running'));
   }
   function strike(event, side) {
@@ -125,6 +128,7 @@ export default function KunaiPractice() {
     const next = hitKunaiTarget(old, radius);
     commit(next);
     if (next.hits > old.hits) {
+      impactUntil.current[side] = performance.now() + 360;
       const id = shotId.current++;
       setShots((current) => [...current.slice(-9), { id, side, x, y, angle: ((id % 5) - 2) * 12 }]);
       setMessage((radius <= 0.24 ? 'Bullseye! +' : 'Hit! +') + (next.score - old.score));
@@ -140,9 +144,9 @@ export default function KunaiPractice() {
       <div className="kunai-intro">
         <span className="screen-eyebrow">Konoha training grounds</span>
         <h2 id="kunai-practice-title">Training round</h2>
-        <p>Hit moving targets. Every five hits makes them faster and smaller.</p>
+        <p>Start with one target. It speeds up, then more targets join as you advance.</p>
         <span className="kunai-hint">
-          45 seconds · 5 misses allowed · Centre 30 / Inner ring 20 / Outer ring 10
+          45 seconds · One miss ends the round · Centre 30 / Inner ring 20 / Outer ring 10
         </span>
         <div className="kunai-controls">
           {(game.status === 'ready' || game.status === 'finished') && (
@@ -161,7 +165,7 @@ export default function KunaiPractice() {
         </div>
         <p className="kunai-feedback" aria-live="polite">
           {game.status === 'finished'
-            ? (game.misses >= MAX_MISSES ? 'Five misses. ' : 'Time is up! ') +
+            ? (game.misses >= MAX_MISSES ? 'Missed! Round over. ' : 'Time is up! ') +
               'Final score: ' +
               game.score
             : game.status === 'paused'
@@ -173,9 +177,9 @@ export default function KunaiPractice() {
         <dl className="kunai-hud">
           {[
             ['Score', game.score],
-            ['Level', difficulty.level],
+            ['Stage', difficulty.level],
             ['Time', Math.ceil(ROUND_SECONDS - game.elapsed) + 's'],
-            ['Misses', game.misses + '/' + MAX_MISSES],
+            ['Targets', difficulty.targetCount],
             ['Best', best],
           ].map(([label, value]) => (
             <div key={label}>
@@ -194,8 +198,18 @@ export default function KunaiPractice() {
             setMessage('Miss! Aim at a target.');
           }}
         >
-          {[0, 1].map((side) => (
-            <div className={'kunai-moving-lane kunai-moving-lane-' + side} key={side}>
+          {Array.from({ length: difficulty.targetCount }, (_, side) => (
+            <div
+              className="kunai-moving-lane"
+              key={side}
+              style={{
+                width: difficulty.targetCount === 1 ? '100%' : '50%',
+                height: difficulty.targetCount > 2 ? '50%' : '100%',
+                left: difficulty.targetCount === 1 ? 0 : `${(side % 2) * 50}%`,
+                top: difficulty.targetCount > 2 ? `${Math.floor(side / 2) * 50}%` : 0,
+                '--target-size': difficulty.targetCount > 2 ? '90px' : undefined,
+              }}
+            >
               <Target
                 side={side}
                 hits={shots.filter((shot) => shot.side === side)}

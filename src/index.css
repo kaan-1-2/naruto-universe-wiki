@@ -2248,16 +2248,45 @@ main .bg-\[\#152034\] p {
   margin-top: 6px;
 }
 .kunai-impact {
-  animation: kunai-land 180ms ease-out;
+  animation: kunai-land 440ms linear both;
+  transform-box: view-box;
+  transform-origin: 0 0;
 }
 @keyframes kunai-land {
-  from {
-    opacity: 0.2;
-    transform: translate(12px, -28px);
+  0% {
+    opacity: 0;
+    transform: translate(-95px, -260px) scale(1.35);
   }
-  to {
+  12% {
     opacity: 1;
-    transform: translate(0, 0);
+  }
+  64% {
+    opacity: 1;
+    transform: translate(-6px, -20px) scale(1.04);
+  }
+  74% {
+    transform: translate(1px, 4px) scale(0.98);
+  }
+  84% {
+    transform: translate(-1px, -2px) scale(1);
+  }
+  94%,
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+.kunai-contact-shadow {
+  animation: kunai-shadow-land 440ms linear both;
+}
+@keyframes kunai-shadow-land {
+  0%,
+  64% {
+    opacity: 0;
+  }
+  80%,
+  100% {
+    opacity: 0.4;
   }
 }
 @media (min-width: 1201px) and (max-width: 1380px) {

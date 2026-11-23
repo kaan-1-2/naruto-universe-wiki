@@ -24,7 +24,15 @@ export default function KunaiTargetArt({ hits = [] }) {
       {hits.map((hit) => (
         <g key={hit.id} transform={`translate(${hit.x} ${hit.y}) rotate(${hit.angle})`}>
           <g className="kunai-impact">
-            <ellipse cx="3" cy="-3" rx="8" ry="3" fill="#1b1918" opacity=".4" />
+            <ellipse
+              className="kunai-contact-shadow"
+              cx="3"
+              cy="-3"
+              rx="8"
+              ry="3"
+              fill="#1b1918"
+              opacity=".4"
+            />
             <path d="M0 0-9-29 0-42 9-29Z" fill="#354049" stroke="#121a20" strokeWidth="1.2" />
             <path d="M0 0v-42l9 13Z" fill="#859197" />
             <path d="M-4-43h8v-22h-8Z" fill="#282c30" stroke="#111a20" />
