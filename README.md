@@ -68,14 +68,14 @@ Open the local URL printed by Vite.
 
 ## Available Commands
 
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Create the production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm test` | Run automated tests |
-| `npm run format` | Format supported project files |
-| `npm run format:check` | Check code formatting |
+| Command                | Description                            |
+| ---------------------- | -------------------------------------- |
+| `npm run dev`          | Start the development server           |
+| `npm run build`        | Create the production build in `dist/` |
+| `npm run preview`      | Preview the production build locally   |
+| `npm test`             | Run automated tests                    |
+| `npm run format`       | Format supported project files         |
+| `npm run format:check` | Check code formatting                  |
 
 The production preview requires the same API proxy routing as the deployment environment for Dattebayo requests. Use the development server for local API testing.
 
@@ -128,32 +128,32 @@ tests/             Automated tests
 
 ## Main Routes
 
-| Route | Content |
-| --- | --- |
-| `/` | Home and interactive kunai targets |
-| `/characters` | Character collection |
-| `/characters/:id` | Character profile |
-| `/clans` | Clan collection |
-| `/clans/:id` | Clan details |
-| `/villages` | Village collection |
-| `/villages/:id` | Village details |
-| `/anime` | Anime and movie collection |
-| `/anime/:id` | Anime or movie details |
-| `/favorites` | Saved characters |
-| `/compare` | Character comparison |
-| `/ninja-dash` | Shinobi Dash mini game |
+| Route              | Content                             |
+| ------------------ | ----------------------------------- |
+| `/`                | Home and interactive kunai targets  |
+| `/characters`      | Character collection                |
+| `/characters/:id`  | Character profile                   |
+| `/clans`           | Clan collection                     |
+| `/clans/:id`       | Clan details                        |
+| `/villages`        | Village collection                  |
+| `/villages/:id`    | Village details                     |
+| `/anime`           | Anime and movie collection          |
+| `/anime/:id`       | Anime or movie details              |
+| `/favorites`       | Saved characters                    |
+| `/compare`         | Character comparison                |
+| `/ninja-dash`      | Shinobi Dash mini game              |
 | `/kunai-challenge` | Falling-object Kunai Challenge game |
 
 ## Shinobi Dash
 
 Run through village stages, jump onto rooftops, cross rocky ridges, and avoid obstacles. A second jump is available while airborne.
 
-| Input | Action |
-| --- | --- |
-| Space / Up Arrow / W / Tap | Jump |
-| Jump again while airborne | Double jump |
-| P | Pause or resume |
-| R | Restart |
+| Input                      | Action          |
+| -------------------------- | --------------- |
+| Space / Up Arrow / W / Tap | Jump            |
+| Jump again while airborne  | Double jump     |
+| P                          | Pause or resume |
+| R                          | Restart         |
 
 The highest score is stored locally in the browser.
 
@@ -161,11 +161,11 @@ The highest score is stored locally in the browser.
 
 Click or tap falling logs and target boards to throw a kunai. Avoid the red paper bombs marked “AVOID”.
 
-| Object | Result |
-| --- | --- |
-| Log | 20 points |
-| Target board | 30 points |
-| Paper bomb | Ends the round |
+| Object       | Result         |
+| ------------ | -------------- |
+| Log          | 20 points      |
+| Target board | 30 points      |
+| Paper bomb   | Ends the round |
 
 Every five successful hits increases the stage, making objects fall faster and appear more frequently.
 
