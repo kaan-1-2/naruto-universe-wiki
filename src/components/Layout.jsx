@@ -22,10 +22,10 @@ export default function Layout({ children }) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const animation = contentRef.current?.animate(
       [
-        { opacity: 0.65, transform: 'translateY(5px)' },
+        { opacity: 0.84, transform: 'translateY(3px)' },
         { opacity: 1, transform: 'translateY(0)' },
       ],
-      { duration: 220, easing: 'ease-out' },
+      { duration: 280, easing: 'ease-out' },
     );
     return () => animation?.cancel();
   }, [location.pathname]);
@@ -121,8 +121,6 @@ export default function Layout({ children }) {
         )}
       </header>
       <div key={location.pathname} className="route-transition-overlay" aria-hidden="true">
-        <span className="route-brush route-brush-dark" />
-        <span className="route-brush route-brush-red" />
         <span className="route-smoke" />
       </div>
       <main id="main-content" className="route-stage">

@@ -24,101 +24,24 @@
   pointer-events: none;
   overflow: hidden;
 }
-.route-brush {
-  position: absolute;
-  width: 180vw;
-  height: 65vh;
-  min-height: 280px;
-  top: 12vh;
-  left: -40vw;
-  opacity: 0;
-  clip-path: polygon(
-    0 13%,
-    8% 5%,
-    31% 9%,
-    48% 0,
-    64% 7%,
-    88% 2%,
-    100% 12%,
-    94% 24%,
-    100% 32%,
-    95% 51%,
-    100% 65%,
-    91% 72%,
-    98% 91%,
-    70% 94%,
-    58% 88%,
-    37% 100%,
-    17% 92%,
-    0 97%,
-    5% 75%,
-    0 58%,
-    4% 39%
-  );
-  animation: shinobi-brush-sweep 620ms cubic-bezier(0.45, 0, 0.25, 1) both;
-}
-.route-brush-dark {
-  background: repeating-linear-gradient(
-    177deg,
-    #131315 0 14px,
-    #252024 14px 17px,
-    #131315 17px 31px
-  );
-}
-.route-brush-red {
-  top: 27vh;
-  height: 34vh;
-  min-height: 160px;
-  background: repeating-linear-gradient(
-    178deg,
-    #a92d26 0 11px,
-    #be4930 11px 13px,
-    #8d231e 13px 26px
-  );
-  animation-delay: 45ms;
-}
 .route-smoke {
   position: absolute;
-  inset: -15%;
+  inset: 0;
   opacity: 0;
   background:
-    radial-gradient(ellipse at 20% 55%, #262127bb, transparent 38%),
-    radial-gradient(ellipse at 65% 40%, #d0b69a99, transparent 36%),
-    radial-gradient(ellipse at 85% 70%, #3b2c2e88, transparent 35%);
-  animation: shinobi-smoke-clear 680ms ease-out both;
-}
-@keyframes shinobi-brush-sweep {
-  0% {
-    opacity: 0;
-    transform: translateX(-115%) rotate(-17deg);
-  }
-  12% {
-    opacity: 0.98;
-  }
-  42% {
-    opacity: 0.98;
-    transform: translateX(-4%) rotate(-17deg);
-  }
-  68% {
-    opacity: 0.94;
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(115%) rotate(-17deg);
-  }
+    radial-gradient(ellipse at -8% 38%, #9e42302b, transparent 35%),
+    radial-gradient(ellipse at 108% 65%, #4d353329, transparent 34%);
+  animation: shinobi-smoke-clear 340ms ease-out both;
 }
 @keyframes shinobi-smoke-clear {
-  0%,
-  18% {
+  0% {
     opacity: 0;
-    transform: scale(0.85) translateX(-12%);
   }
-  46% {
-    opacity: 0.65;
+  25% {
+    opacity: 0.45;
   }
   100% {
     opacity: 0;
-    transform: scale(1.14) translateX(14%);
   }
 }
 .shinobi-loading {
