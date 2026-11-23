@@ -2709,3 +2709,45 @@ main .bg-\[\#152034\] p {
     height: clamp(300px, 48svh, 440px);
   }
 }
+
+.falling-object-guide {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  border-top: 1px solid #af95613d;
+  padding-top: 20px;
+  margin-top: 18px;
+}
+.falling-object-guide > div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.falling-object-guide h3 {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #d3bc90;
+  width: 100%;
+}
+.falling-object-guide span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #d0c1a3;
+  text-transform: capitalize;
+}
+.falling-object-guide svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
+.falling-object-guide strong {
+  color: #e6c58a;
+}
+@media (max-width: 600px) {
+  .falling-object-guide {
+    grid-template-columns: 1fr;
+  }
+}

@@ -12,9 +12,10 @@ export default function KunaiChallengePage() {
         <p className="screen-eyebrow">Shinobi games / Kunai Challenge</p>
         <h1>Kunai Challenge</h1>
         <p>
-          Click falling logs and target boards to throw a kunai. Avoid red paper bombs. Let a safe
-          object fall, miss a throw or hit a bomb and the round ends. Every five hits makes the next
-          stage faster and busier.
+          Hit falling logs, target boards, training dummies and scrolls. Avoid paper bombs, spiked
+          iron balls and poison bottles. There is no time limit: survive as long as you can. A
+          missed throw, dropped safe object or hazard hit ends the run. Every three hits raises the
+          stage.
         </p>
       </div>
       <KunaiPractice />

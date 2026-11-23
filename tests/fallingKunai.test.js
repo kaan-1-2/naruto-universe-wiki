@@ -6,6 +6,9 @@ import {
   advanceFallingGame,
   strikeFallingObject,
   endFallingGame,
+  FALLING_OBJECTS,
+  SAFE_OBJECTS,
+  HAZARD_OBJECTS,
 } from '../src/game/fallingKunai.js';
 
 test('first falling object is safe; stages raise speed and spawn frequency', () => {
@@ -14,7 +17,10 @@ test('first falling object is safe; stages raise speed and spawn frequency', () 
   assert.notEqual(state.objects[0].type, 'bomb');
   assert.ok(fallingDifficulty(15).speed > fallingDifficulty(0).speed);
   assert.ok(fallingDifficulty(15).interval < fallingDifficulty(0).interval);
-  assert.equal(fallingDifficulty(999).stage, 10);
+  assert.equal(fallingDifficulty(3).stage, 2);
+  assert.ok(fallingDifficulty(999).stage > 10);
+  assert.equal(fallingDifficulty(0).speed, 30);
+  assert.equal(fallingDifficulty(0).interval, 0.95);
 });
 test('safe hits award points once, create an impact and remove the falling object', () => {
   const state = {
@@ -46,16 +52,55 @@ test('a bomb, dropped safe object or empty throw ends the round; falling bombs c
   );
   assert.equal(endFallingGame(base, 'miss').status, 'finished');
 });
-test('pause freezes simulation, time ends a round, and hit effects expire', () => {
+test('pause freezes simulation, survival continues past the former time limit, and effects expire', () => {
   const paused = createFallingGame('paused');
   assert.equal(advanceFallingGame(paused, 10), paused);
-  assert.equal(
-    advanceFallingGame({ ...createFallingGame('running'), elapsed: 44 }, 1).reason,
-    'time',
+  const endless = advanceFallingGame(
+    { ...createFallingGame('running'), elapsed: 44, spawnIn: 1000 },
+    100,
   );
+  assert.equal(endless.status, 'running');
+  assert.equal(endless.elapsed, 144);
   const state = advanceFallingGame(
     { ...createFallingGame('running'), spawnIn: 2, effects: [{ ttl: 0.1 }] },
     0.2,
   );
   assert.equal(state.effects.length, 0);
+});
+
+test('all four safe objects score correctly and all three hazards end the run only when hit', () => {
+  for (const type of SAFE_OBJECTS) {
+    const game = { ...createFallingGame('running'), objects: [{ id: 1, type }] };
+    assert.equal(strikeFallingObject(game, 1).score, FALLING_OBJECTS[type].points);
+  }
+  for (const type of HAZARD_OBJECTS) {
+    const game = {
+      ...createFallingGame('running'),
+      spawnIn: 100,
+      objects: [{ id: 1, type, y: 111, speed: 30, angle: 0, spin: 0 }],
+    };
+    assert.equal(strikeFallingObject(game, 1).status, 'finished');
+    assert.equal(advanceFallingGame(game, 1).status, 'running');
+  }
+});
+
+test('spawner can generate every safe and dangerous object type', () => {
+  for (const types of [SAFE_OBJECTS, HAZARD_OBJECTS]) {
+    types.forEach((type, index) => {
+      const sequence = [
+        types === SAFE_OBJECTS ? 0.99 : 0,
+        (index + 0.1) / types.length,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+      ];
+      const game = advanceFallingGame(
+        { ...createFallingGame('running'), nextId: 3 },
+        0,
+        () => sequence.shift() ?? 0.5,
+      );
+      assert.equal(game.objects[0].type, type);
+    });
+  }
 });

@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import KunaiTargetArt from './KunaiTargetArt.jsx';
 import {
-  ROUND_SECONDS,
+  FALLING_OBJECTS,
+  SAFE_OBJECTS,
+  HAZARD_OBJECTS,
+  isHazard,
   createFallingGame,
   fallingDifficulty,
   advanceFallingGame,
@@ -10,6 +13,55 @@ import {
 } from '../game/fallingKunai.js';
 
 function FallingArt({ type, impact = false }) {
+  if (type === 'dummy')
+    return (
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M48 65v29M21 47h60" stroke="#674326" strokeWidth="8" />
+        <path d="m34 37 31 0 10 41-48 0Z" fill="#c6a26a" stroke="#65462b" strokeWidth="3" />
+        <circle cx="50" cy="23" r="16" fill="#d7b67c" stroke="#65462b" strokeWidth="3" />
+        <path d="M32 52h36M29 67h43M40 12l20 22m-20 0 20-22" stroke="#977244" strokeWidth="2" />
+        <circle cx="50" cy="57" r="10" fill="none" stroke="#9e3f30" strokeWidth="4" />
+      </svg>
+    );
+  if (type === 'scroll')
+    return (
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M22 20h56v60H22Z" fill="#ead4a5" stroke="#695035" strokeWidth="3" />
+        <path d="M21 17v67m58-67v67" stroke="#7b3f32" strokeWidth="12" strokeLinecap="round" />
+        <path d="M32 32h34m-34 9h23m-23 9h34m-34 9h18" stroke="#9e7c50" strokeWidth="2" />
+        <path d="m46 66 8-10 8 10-8 8Z" fill="#9f4936" />
+      </svg>
+    );
+  if (type === 'spikes')
+    return (
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path
+          d="m50 3 10 23 23-9-9 23 23 10-23 10 9 23-23-9-10 23-10-23-23 9 9-23L3 50l23-10-9-23 23 9Z"
+          fill="#7f8b91"
+          stroke="#27323b"
+          strokeWidth="3"
+        />
+        <circle cx="50" cy="50" r="28" fill="#35434d" stroke="#a4afb3" strokeWidth="3" />
+        <path d="m37 37 26 26m0-26L37 63" stroke="#ba6651" strokeWidth="6" />
+      </svg>
+    );
+  if (type === 'poison')
+    return (
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M36 8h28v14H36Z" fill="#917354" stroke="#332a26" strokeWidth="3" />
+        <path
+          d="M38 22v15L21 52v34q29 11 58 0V52L62 37V22Z"
+          fill="#334d48"
+          stroke="#142c2b"
+          strokeWidth="4"
+        />
+        <path d="M27 62h46v20q-23 8-46 0Z" fill="#689464" />
+        <path d="M34 47h32v30H34Z" fill="#d7c596" />
+        <text x="50" y="69" textAnchor="middle" fill="#4b3554" fontSize="24" fontWeight="bold">
+          毒
+        </text>
+      </svg>
+    );
   if (type === 'target')
     return <KunaiTargetArt hits={impact ? [{ id: 0, x: 100, y: 100, angle: 8 }] : []} />;
   if (type === 'bomb')
@@ -102,9 +154,10 @@ export default function KunaiPractice() {
   const stage = fallingDifficulty(game.hits).stage;
   const endMessage = {
     bomb: 'You hit a paper bomb!',
+    spikes: 'You hit a spiked iron ball!',
+    poison: 'You hit a poison bottle!',
     dropped: 'A safe object escaped!',
     miss: 'Your kunai missed!',
-    time: 'Time is up!',
   }[game.reason];
   function hit(event, id) {
     event.stopPropagation();
@@ -120,7 +173,7 @@ export default function KunaiPractice() {
         <div>
           <span className="screen-eyebrow">Konoha training grounds</span>
           <h2>Catch them on the way down</h2>
-          <p>Wood +20 · Target +30 · Red paper bombs: avoid</p>
+          <p>No time limit. Hit safe objects and avoid all items marked AVOID.</p>
         </div>
         <div className="kunai-controls">
           {game.status === 'ready' || game.status === 'finished' ? (
@@ -147,7 +200,10 @@ export default function KunaiPractice() {
         {[
           ['Score', game.score],
           ['Stage', stage],
-          ['Time', Math.ceil(ROUND_SECONDS - game.elapsed) + 's'],
+          [
+            'Survived',
+            `${Math.floor(game.elapsed / 60)}:${String(Math.floor(game.elapsed % 60)).padStart(2, '0')}`,
+          ],
           ['Hits', game.hits],
           ['Best', best],
         ].map(([label, value]) => (
@@ -173,7 +229,10 @@ export default function KunaiPractice() {
             key={object.id}
             className={'falling-object falling-' + object.type}
             disabled={!active}
-            aria-label={object.type === 'bomb' ? 'Avoid paper bomb' : 'Hit falling ' + object.type}
+            aria-label={
+              (isHazard(object.type) ? 'Avoid ' : 'Hit falling ') +
+              FALLING_OBJECTS[object.type].label
+            }
             style={{
               left: object.x + '%',
               top: object.y + '%',
@@ -185,7 +244,7 @@ export default function KunaiPractice() {
             }}
           >
             <FallingArt type={object.type} />
-            {object.type === 'bomb' && <span className="falling-danger-label">AVOID</span>}
+            {isHazard(object.type) && <span className="falling-danger-label">AVOID</span>}
           </button>
         ))}
         {game.effects.map((effect) => (
@@ -197,7 +256,7 @@ export default function KunaiPractice() {
           >
             <FallingArt type={effect.type} impact />
             <span className="falling-points">+{effect.points}</span>
-            {effect.type === 'log' && (
+            {effect.type !== 'target' && (
               <svg className="falling-impact-knife" viewBox="-12 -80 24 84">
                 <path d="m0 0-9-27L0-40l9 13Z" fill="#8b969c" stroke="#222b30" />
                 <path d="M-3-40h6v-22h-6Z" fill="#222b30" />
@@ -217,7 +276,7 @@ export default function KunaiPractice() {
             </h3>
             <p>
               {game.status === 'ready'
-                ? 'Hit falling wood and targets. Leave the bombs alone.'
+                ? 'Logs, target boards, dummies and scrolls are safe. Avoid bombs, iron spikes and poison.'
                 : game.status === 'paused'
                   ? 'Resume when you are ready.'
                   : 'Final score: ' + game.score}
@@ -230,8 +289,28 @@ export default function KunaiPractice() {
           ? endMessage + ' Final score: ' + game.score
           : game.status === 'paused'
             ? 'Training paused.'
-            : 'Every five hits raises the stage. One mistake ends the round.'}
+            : 'Every three hits raises the stage. Keep going until your first mistake.'}
       </p>
+      <div className="falling-object-guide" aria-label="Object guide">
+        <div>
+          <h3>HIT</h3>
+          {SAFE_OBJECTS.map((type) => (
+            <span key={type}>
+              <FallingArt type={type} />
+              {FALLING_OBJECTS[type].label} <strong>+{FALLING_OBJECTS[type].points}</strong>
+            </span>
+          ))}
+        </div>
+        <div>
+          <h3>AVOID</h3>
+          {HAZARD_OBJECTS.map((type) => (
+            <span key={type}>
+              <FallingArt type={type} />
+              {FALLING_OBJECTS[type].label}
+            </span>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
