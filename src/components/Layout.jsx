@@ -59,7 +59,9 @@ export default function Layout({ children }) {
       <header className="wiki-header">
         <div className="header-inner">
           <Link to="/" className="wiki-wordmark" aria-label="Naruto Universe Wiki home">
-            <img src="/assets/motifs/leaf.svg" alt="" />
+            <span className="wiki-emblem" aria-hidden="true">
+              <img src="/assets/motifs/leaf-emblem.png" alt="" />
+            </span>
             <span>
               Naruto Universe
               <br />

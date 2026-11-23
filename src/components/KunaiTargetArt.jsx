@@ -23,6 +23,9 @@ export default function KunaiTargetArt({ hits = [] }) {
       <path d="M100 23v11m0 132v11M23 100h11m132 0h11" stroke="#d4b47f" strokeWidth="2" />
       {hits.map((hit) => (
         <g key={hit.id} transform={`translate(${hit.x} ${hit.y}) rotate(${hit.angle})`}>
+          <g className="kunai-wood-chips" fill="#c79b63">
+            <path d="m-5 0-12-7 5 10Zm9-1 14-6-7 10ZM0 4l-4 12 8-8Z" />
+          </g>
           <g className="kunai-impact">
             <ellipse
               className="kunai-contact-shadow"

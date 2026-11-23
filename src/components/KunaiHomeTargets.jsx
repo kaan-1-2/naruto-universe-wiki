@@ -1,10 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import KunaiTargetArt from './KunaiTargetArt.jsx';
 
 function Target({ side }) {
   const [hits, setHits] = useState([]);
   const [throws, setThrows] = useState(0);
+  const board = useRef(null);
+  useEffect(() => {
+    if (!throws || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const shake = board.current?.animate(
+      [
+        { transform: 'translate(0,0) rotate(0deg)' },
+        { transform: 'translate(3px,3px) rotate(1.5deg)' },
+        { transform: 'translate(-2px,-1px) rotate(-1deg)' },
+        { transform: 'translate(1px,0) rotate(.5deg)' },
+        { transform: 'translate(0,0) rotate(0deg)' },
+      ],
+      { duration: 220, delay: 200, easing: 'ease-out' },
+    );
+    return () => shake?.cancel();
+  }, [throws]);
   function strike(event) {
     const rect = event.currentTarget.getBoundingClientRect();
     const keyboard = event.detail === 0;
@@ -23,6 +38,7 @@ function Target({ side }) {
   return (
     <div className="kunai-lane">
       <button
+        ref={board}
         className="kunai-target"
         aria-label={`Throw a kunai at the ${side} target`}
         onClick={strike}

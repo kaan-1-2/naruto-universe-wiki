@@ -11,7 +11,11 @@ export default function KunaiChallengePage() {
         </Link>
         <p className="screen-eyebrow">Shinobi games / Kunai Challenge</p>
         <h1>Kunai Challenge</h1>
-        <p>Train your aim against moving targets and beat your best score.</p>
+        <p>
+          Click falling logs and target boards to throw a kunai. Avoid red paper bombs. Let a safe
+          object fall, miss a throw or hit a bomb and the round ends. Every five hits makes the next
+          stage faster and busier.
+        </p>
       </div>
       <KunaiPractice />
       <div className="page-width kunai-other-game">

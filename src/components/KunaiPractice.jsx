@@ -2,242 +2,236 @@ import { useEffect, useRef, useState } from 'react';
 import KunaiTargetArt from './KunaiTargetArt.jsx';
 import {
   ROUND_SECONDS,
-  MAX_MISSES,
-  createKunaiGame,
-  kunaiDifficulty,
-  targetPosition,
-  hitKunaiTarget,
-  missKunaiTarget,
-  advanceKunaiGame,
-} from '../game/kunai.js';
+  createFallingGame,
+  fallingDifficulty,
+  advanceFallingGame,
+  strikeFallingObject,
+  endFallingGame,
+} from '../game/fallingKunai.js';
 
-function Target({ side, hits, onStrike, active, scale, buttonRef }) {
+function FallingArt({ type, impact = false }) {
+  if (type === 'target')
+    return <KunaiTargetArt hits={impact ? [{ id: 0, x: 100, y: 100, angle: 8 }] : []} />;
+  if (type === 'bomb')
+    return (
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <path d="m53 17 3-11 16 2" stroke="#ac9c77" strokeWidth="5" fill="none" />
+        <path d="m29 16 50 9-12 66-50-9Z" fill="#9f3029" stroke="#2a1b19" strokeWidth="4" />
+        <path d="m35 27 31 6-8 45-31-6Z" fill="#f0d5a7" />
+        <text x="46" y="63" fill="#68241e" textAnchor="middle" fontSize="30" fontWeight="bold">
+          爆
+        </text>
+      </svg>
+    );
   return (
-    <button
-      ref={buttonRef}
-      className="kunai-target"
-      disabled={!active}
-      style={{ width: 'calc(var(--target-size) * ' + scale + ')' }}
-      aria-label={'Throw a kunai at target ' + (side + 1)}
-      onClick={(event) => onStrike(event, side)}
-    >
-      <KunaiTargetArt hits={hits} />
-    </button>
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <path d="M19 31 74 23l12 45-56 9Z" fill="#89603c" stroke="#3b2a1f" strokeWidth="3" />
+      <path d="m26 40 49-8m-46 22 51-9m-47 21 50-10" stroke="#b58a58" strokeWidth="3" />
+      <ellipse
+        cx="25"
+        cy="54"
+        rx="15"
+        ry="23"
+        transform="rotate(-15 25 54)"
+        fill="#d3ae79"
+        stroke="#5d3e27"
+        strokeWidth="3"
+      />
+      <ellipse
+        cx="25"
+        cy="54"
+        rx="8"
+        ry="15"
+        transform="rotate(-15 25 54)"
+        fill="none"
+        stroke="#9c7042"
+        strokeWidth="2"
+      />
+      <path d="m68 24 6 12-2 13" fill="none" stroke="#473024" strokeWidth="2" />
+    </svg>
   );
 }
-
 function readBest() {
   try {
-    const value = Number(localStorage.getItem('shinobi:kunai-best-v2'));
-    return Number.isFinite(value) && value > 0 ? value : 0;
+    return Math.max(0, Number(localStorage.getItem('shinobi:falling-kunai-best')) || 0);
   } catch {
     return 0;
   }
 }
 
 export default function KunaiPractice() {
-  const [game, setGame] = useState(createKunaiGame);
+  const [game, setGame] = useState(createFallingGame);
   const gameRef = useRef(game);
-  const targets = useRef([]);
-  const shotId = useRef(0);
-  const motionClock = useRef(0);
-  const impactUntil = useRef([]);
-  const [shots, setShots] = useState([]);
+  const gamePanel = useRef(null);
   const [best, setBest] = useState(readBest);
-  const [message, setMessage] = useState('Hit the moving targets. The centre earns more points.');
-  const [reducedMotion, setReducedMotion] = useState(false);
   function commit(next) {
     gameRef.current = next;
     setGame(next);
   }
   useEffect(() => {
-    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReducedMotion(preference.matches);
-    update();
-    preference.addEventListener('change', update);
-    return () => preference.removeEventListener('change', update);
-  }, []);
-  useEffect(() => {
-    const pauseWhenHidden = () => {
-      if (document.hidden && gameRef.current.status === 'running')
-        commit({ ...gameRef.current, status: 'paused' });
-    };
-    document.addEventListener('visibilitychange', pauseWhenHidden);
-    return () => document.removeEventListener('visibilitychange', pauseWhenHidden);
-  }, []);
-  useEffect(() => {
     if (game.status !== 'running') return;
-    let frame;
-    let previous;
+    let frame, last;
     function tick(now) {
-      const delta = previous === undefined ? 0 : Math.min((now - previous) / 1000, 0.1);
-      previous = now;
-      const old = gameRef.current;
-      const next = advanceKunaiGame(old, delta);
-      const speed = kunaiDifficulty(next.hits).speed;
-      motionClock.current += delta * speed;
-      gameRef.current = next;
-      if (
-        Math.ceil(ROUND_SECONDS - old.elapsed) !== Math.ceil(ROUND_SECONDS - next.elapsed) ||
-        old.status !== next.status
-      )
-        setGame(next);
-      targets.current.forEach((target, side) => {
-        if (!target) return;
-        if (performance.now() < (impactUntil.current[side] || 0)) return;
-        const point = targetPosition(
-          reducedMotion ? next.hits * 0.8 : motionClock.current / speed,
-          side,
-          next.hits,
-        );
-        target.style.left = point.x + '%';
-        target.style.top = point.y + '%';
-      });
+      const delta = last === undefined ? 0 : Math.min(0.1, (now - last) / 1000);
+      last = now;
+      const next = advanceFallingGame(gameRef.current, delta);
+      commit(next);
       if (next.status === 'running') frame = requestAnimationFrame(tick);
     }
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [game.status, reducedMotion]);
+  }, [game.status]);
+  useEffect(() => {
+    const pause = () => {
+      if (document.hidden && gameRef.current.status === 'running')
+        commit({ ...gameRef.current, status: 'paused' });
+    };
+    document.addEventListener('visibilitychange', pause);
+    return () => document.removeEventListener('visibilitychange', pause);
+  }, []);
   useEffect(() => {
     if (game.status !== 'finished' || game.score <= best) return;
     setBest(game.score);
     try {
-      localStorage.setItem('shinobi:kunai-best-v2', String(game.score));
+      localStorage.setItem('shinobi:falling-kunai-best', String(game.score));
     } catch {
-      /* Scores remain available for this session. */
+      /* The current score remains visible. */
     }
   }, [game.status, game.score, best]);
-
-  function start() {
-    setShots([]);
-    shotId.current = 0;
-    motionClock.current = 0;
-    impactUntil.current = [];
-    setMessage('One target to start. Aim carefully: one miss ends the round.');
-    commit(createKunaiGame('running'));
-  }
-  function strike(event, side) {
+  const active = game.status === 'running';
+  const stage = fallingDifficulty(game.hits).stage;
+  const endMessage = {
+    bomb: 'You hit a paper bomb!',
+    dropped: 'A safe object escaped!',
+    miss: 'Your kunai missed!',
+    time: 'Time is up!',
+  }[game.reason];
+  function hit(event, id) {
     event.stopPropagation();
-    if (gameRef.current.status !== 'running') return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const keyboard = event.detail === 0;
-    const x = keyboard ? 100 : ((event.clientX - rect.left) / rect.width) * 200;
-    const y = keyboard ? 100 : ((event.clientY - rect.top) / rect.height) * 200;
-    const radius = Math.hypot(x - 100, y - 100) / 100;
-    const old = gameRef.current;
-    const next = hitKunaiTarget(old, radius);
-    commit(next);
-    if (next.hits > old.hits) {
-      impactUntil.current[side] = performance.now() + 360;
-      const id = shotId.current++;
-      setShots((current) => [...current.slice(-9), { id, side, x, y, angle: ((id % 5) - 2) * 12 }]);
-      setMessage((radius <= 0.24 ? 'Bullseye! +' : 'Hit! +') + (next.score - old.score));
-    } else setMessage('Miss! Keep your eye on the target.');
+    commit(strikeFallingObject(gameRef.current, id));
   }
-  const difficulty = kunaiDifficulty(game.hits);
-  const running = game.status === 'running';
   return (
     <section
-      className="kunai-practice kunai-game page-width"
-      aria-labelledby="kunai-practice-title"
+      ref={gamePanel}
+      className="kunai-practice kunai-falling-game page-width"
+      aria-label="Falling kunai game"
     >
-      <div className="kunai-intro">
-        <span className="screen-eyebrow">Konoha training grounds</span>
-        <h2 id="kunai-practice-title">Training round</h2>
-        <p>Start with one target. It speeds up, then more targets join as you advance.</p>
-        <span className="kunai-hint">
-          45 seconds · One miss ends the round · Centre 30 / Inner ring 20 / Outer ring 10
-        </span>
+      <div className="falling-topbar">
+        <div>
+          <span className="screen-eyebrow">Konoha training grounds</span>
+          <h2>Catch them on the way down</h2>
+          <p>Wood +20 · Target +30 · Red paper bombs: avoid</p>
+        </div>
         <div className="kunai-controls">
-          {(game.status === 'ready' || game.status === 'finished') && (
-            <button className="ink-button" onClick={start}>
+          {game.status === 'ready' || game.status === 'finished' ? (
+            <button
+              className="ink-button"
+              onClick={() => {
+                commit(createFallingGame('running'));
+                gamePanel.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
+              }}
+            >
               {game.status === 'ready' ? 'Start training' : 'Play again'}
             </button>
-          )}
-          {(running || game.status === 'paused') && (
+          ) : (
             <button
               className="paper-button"
-              onClick={() => commit({ ...gameRef.current, status: running ? 'paused' : 'running' })}
+              onClick={() => commit({ ...gameRef.current, status: active ? 'paused' : 'running' })}
             >
-              {running ? 'Pause' : 'Resume'}
+              {active ? 'Pause' : 'Resume'}
             </button>
           )}
         </div>
-        <p className="kunai-feedback" aria-live="polite">
-          {game.status === 'finished'
-            ? (game.misses >= MAX_MISSES ? 'Missed! Round over. ' : 'Time is up! ') +
-              'Final score: ' +
-              game.score
-            : game.status === 'paused'
-              ? 'Training paused.'
-              : message}
-        </p>
       </div>
-      <div className="kunai-game-area">
-        <dl className="kunai-hud">
-          {[
-            ['Score', game.score],
-            ['Stage', difficulty.level],
-            ['Time', Math.ceil(ROUND_SECONDS - game.elapsed) + 's'],
-            ['Targets', difficulty.targetCount],
-            ['Best', best],
-          ].map(([label, value]) => (
-            <div key={label}>
-              <dt>{label}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))}
-        </dl>
-        <div
-          className="kunai-arena"
-          role="group"
-          aria-label="Kunai training arena"
-          onClick={() => {
-            if (gameRef.current.status !== 'running') return;
-            commit(missKunaiTarget(gameRef.current));
-            setMessage('Miss! Aim at a target.');
-          }}
-        >
-          {Array.from({ length: difficulty.targetCount }, (_, side) => (
-            <div
-              className="kunai-moving-lane"
-              key={side}
-              style={{
-                width: difficulty.targetCount === 1 ? '100%' : '50%',
-                height: difficulty.targetCount > 2 ? '50%' : '100%',
-                left: difficulty.targetCount === 1 ? 0 : `${(side % 2) * 50}%`,
-                top: difficulty.targetCount > 2 ? `${Math.floor(side / 2) * 50}%` : 0,
-                '--target-size': difficulty.targetCount > 2 ? '90px' : undefined,
-              }}
-            >
-              <Target
-                side={side}
-                hits={shots.filter((shot) => shot.side === side)}
-                active={running}
-                scale={difficulty.scale}
-                onStrike={strike}
-                buttonRef={(element) => {
-                  targets.current[side] = element;
-                }}
-              />
-            </div>
-          ))}
-          {!running && (
-            <div className="kunai-arena-caption">
+      <dl className="kunai-hud">
+        {[
+          ['Score', game.score],
+          ['Stage', stage],
+          ['Time', Math.ceil(ROUND_SECONDS - game.elapsed) + 's'],
+          ['Hits', game.hits],
+          ['Best', best],
+        ].map(([label, value]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+      <div
+        className="falling-arena"
+        role="group"
+        aria-label="Falling object arena"
+        onPointerDown={() => {
+          if (active) commit(endFallingGame(gameRef.current, 'miss'));
+        }}
+      >
+        <div className="falling-backdrop" aria-hidden="true">
+          <span>木ノ葉</span>
+        </div>
+        {game.objects.map((object) => (
+          <button
+            key={object.id}
+            className={'falling-object falling-' + object.type}
+            disabled={!active}
+            aria-label={object.type === 'bomb' ? 'Avoid paper bomb' : 'Hit falling ' + object.type}
+            style={{
+              left: object.x + '%',
+              top: object.y + '%',
+              transform: 'translate(-50%,-50%) rotate(' + object.angle + 'deg)',
+            }}
+            onPointerDown={(event) => hit(event, object.id)}
+            onClick={(event) => {
+              if (event.detail === 0) hit(event, object.id);
+            }}
+          >
+            <FallingArt type={object.type} />
+            {object.type === 'bomb' && <span className="falling-danger-label">AVOID</span>}
+          </button>
+        ))}
+        {game.effects.map((effect) => (
+          <div
+            key={effect.id}
+            className={'falling-hit-effect falling-hit-' + effect.type}
+            style={{ left: effect.x + '%', top: effect.y + '%' }}
+            aria-hidden="true"
+          >
+            <FallingArt type={effect.type} impact />
+            <span className="falling-points">+{effect.points}</span>
+            {effect.type === 'log' && (
+              <svg className="falling-impact-knife" viewBox="-12 -80 24 84">
+                <path d="m0 0-9-27L0-40l9 13Z" fill="#8b969c" stroke="#222b30" />
+                <path d="M-3-40h6v-22h-6Z" fill="#222b30" />
+                <circle cy="-69" r="6" stroke="#839097" strokeWidth="3" fill="none" />
+              </svg>
+            )}
+          </div>
+        ))}
+        {!active && (
+          <div className="falling-game-overlay">
+            <h3>
               {game.status === 'ready'
                 ? 'Ready your kunai'
                 : game.status === 'paused'
                   ? 'Paused'
-                  : 'Training complete'}
-            </div>
-          )}
-        </div>
-        <p className="kunai-accuracy">
-          {game.hits} hits ·{' '}
-          {game.hits + game.misses ? Math.round((game.hits / (game.hits + game.misses)) * 100) : 0}%
-          accuracy{reducedMotion ? ' · Reduced motion' : ''}
-        </p>
+                  : endMessage}
+            </h3>
+            <p>
+              {game.status === 'ready'
+                ? 'Hit falling wood and targets. Leave the bombs alone.'
+                : game.status === 'paused'
+                  ? 'Resume when you are ready.'
+                  : 'Final score: ' + game.score}
+            </p>
+          </div>
+        )}
       </div>
+      <p className="falling-round-status" role="status">
+        {game.status === 'finished'
+          ? endMessage + ' Final score: ' + game.score
+          : game.status === 'paused'
+            ? 'Training paused.'
+            : 'Every five hits raises the stage. One mistake ends the round.'}
+      </p>
     </section>
   );
 }
